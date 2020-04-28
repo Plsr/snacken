@@ -2,32 +2,42 @@
 
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  def show; end
+  def show
+    @user = current_user
+  end
 
   def new
     @user = User.new
   end
 
-  def edit; end
+  def edit
+    @user = current_user
+  end
 
   def create
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to root_path, notice: 'Registered Successful'
+      redirect_to root_path, notice: 'Registered successfully'
     else
       render :new
     end
   end
 
-  def update; end
+  def update
+    @user = current_user
+    if @user.update(user_params)
+      redirect_to profile_path, notice: 'Update Successful'
+    else
+      render :edit
+    end
+  end
 
   def destroy
     # TODO: Check if user is allowed
-    @user.destroy
-    redirect_to users_url, notice: 'User was successfully destroyed.'
+    current_user.destroy
+    redirect_to root_path, notice: 'User was successfully destroyed.'
   end
 
   private
