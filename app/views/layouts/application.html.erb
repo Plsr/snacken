@@ -5,24 +5,31 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <nav>
-      <% if current_user %>
-        <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
-        <%= link_to "Logout", :logout, method: :post %>
-      <% else %>
-        <%= link_to "Register", new_user_path %> |
-        <%= link_to "Login", :login %>
-      <% end %>
+  <body class="bg-gray-100">
+    <nav class="shadow-md p-6 flex justify-between bg-white">
+      <div>
+        <%= link_to 'dnnr', root_path, class: 'font-extrabold' %>
+      </div>
+      <div>
+        <% if current_user %>
+          <%= link_to "Edit Profile", edit_user_path(current_user.id), class: 'text-teal-600' %>
+          <%= link_to "Logout", :logout, method: :post, class: 'text-teal-600' %>
+        <% else %>
+          <%= link_to "Register", new_user_path, class: 'text-teal-600' %>
+          <%= link_to "Login", :login, class: 'text-teal-600' %>
+        <% end %>
+      </div>
     </nav>
     <div>
       <p id="notice"><%= flash[:notice] %></p>
       <p id="alert"><%= flash[:alert] %></p>
     </div>
-    <%= yield %>
+    <div class="container mx-auto">
+      <%= yield %>
+    </div>
   </body>
 </html>

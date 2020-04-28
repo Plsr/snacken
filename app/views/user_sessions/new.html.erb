@@ -1,4 +1,8 @@
-<h1>Login</h1>
-<%= render 'form' %>
-
-<%= link_to 'Register', new_user_path %>
+<div class="max-w-md rounded overflow-hidden shadow-lg rounded-md bg-white mt-16 mx-auto p-4 mb-16">
+  <h1 class="text-xl font-extrabold mb-4">Login</h1>
+  <%= render 'form' %>
+</div>
+<div class="text-center">
+  <p class="italic">Do not have an account yet?</p>
+  <%= link_to 'Register here', new_user_path, class: 'underline text-teal-500' %>
+</div>
