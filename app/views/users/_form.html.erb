@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+  <div class="field mb-6">
+    <%= form.label :email, class: 'block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' %>
+    <%= form.text_field :email, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
   </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password %>
+  <div class="field mb-6">
+    <%= form.label :password, class: 'block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' %>
+    <%= form.password_field :password, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
   </div>
 
-  <div class="field">
-    <%= form.label :password_confirmation %>
-    <%= form.text_field :password_confirmation %>
+  <div class="field mb-6">
+    <%= form.label :password_confirmation, class: 'block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' %>
+    <%= form.password_field :password_confirmation, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Register", class: 'bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded'  %>
   </div>
 <% end %>
