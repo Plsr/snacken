@@ -1,0 +1,8 @@
+<h1>Recipes</h1>
+<% if @recipes.present? %>
+  <% @recipes.each do |recipe| %>
+    <h2><%= recipe.name =%>
+  <% end %>
+<% else %>
+  <p>No recipes yet</p>
+<% end %>
