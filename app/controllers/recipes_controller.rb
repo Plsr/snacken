@@ -7,6 +7,11 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
   end
 
+  def show
+    @recipe = Recipe.find(params[:id])
+    raise ActionController::RoutingError.new('Not Found') unless recipe_accessible?
+  end
+
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
@@ -22,5 +27,9 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:name, :description)
+  end
+
+  def recipe_accessible?
+    @recipe.user == current_user
   end
 end
