@@ -20,23 +20,28 @@
     <%= form.text_area :description, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
   </div>
 
-  <div class="field mb-6">
-    <%= form.fields_for :recipe_ingredients do |ingredients_form| %>
-      <%= ingredients_form.fields_for :ingredient do |ingredient_form| %>
-        <div class="field mb-6">
-          <%= ingredient_form.label :name %>
-          <%= ingredient_form.text_field :name %>
-        </div>
-        <div class="field mb-6">
-          <%= ingredients_form.label :amount %>
-          <%= ingredients_form.text_field :amount %>
-        </div>
-        <div class="field mb-6">
-          <%= ingredient_form.label :unit %>
-          <%= ingredient_form.text_field :unit %>
-        </div>
+  <div class="field mb-6" data-controller="recipe-rows">
+    <div data-target="recipe-rows.container">
+      <%= form.fields_for :recipe_ingredients do |ingredients_form| %>
+        <%= ingredients_form.fields_for :ingredient do |ingredient_form| %>
+          <div data-target="recipe-rows.row">
+            <div class="field mb-6">
+              <%= ingredient_form.label :name %>
+              <%= ingredient_form.text_field :name %>
+            </div>
+            <div class="field mb-6">
+              <%= ingredients_form.label :amount %>
+              <%= ingredients_form.text_field :amount %>
+            </div>
+            <div class="field mb-6">
+              <%= ingredient_form.label :unit %>
+              <%= ingredient_form.text_field :unit %>
+            </div>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
+    <a href="#" data-action="recipe-rows#addRow">Add row</a>
   </div>
 
 
