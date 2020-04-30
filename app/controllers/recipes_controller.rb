@@ -5,6 +5,9 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    # TODO: Only build one, more should be added dynamically
+    # later on by user input
+    3.times { @recipe.recipe_ingredients.build.build_ingredient }
   end
 
   def show
@@ -16,24 +19,8 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
 
-    # Create Ingredient record
-    # TODO: This ugly
-    ingredients_params = params[:recipe][:recipe_ingredients]
-    ingredient = Ingredient.create(name: ingredients_params[:name], unit: ingredients_params[:unit])
-
     if @recipe.save
-      # Create relation
-      # TODO: This ugly
-      recipe_ingredient = RecipeIngredient.new(
-        ingredient: ingredient,
-        recipe: @recipe,
-        amount: ingredients_params[:amount]
-      )
-      if recipe_ingredient.save
-        redirect_to recipes_path, notice: 'Recipe created'
-      else
-        render :new
-      end
+      redirect_to recipes_path, notice: 'Recipe created'
     else
       render :new
     end
@@ -42,7 +29,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :description)
+    params.require(:recipe).permit(:name, :description, :recipe_ingredients_attributes => [:amount, :ingredient_attributes => [:name, :unit]])
   end
 
   def recipe_accessible?

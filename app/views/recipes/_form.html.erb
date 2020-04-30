@@ -21,19 +21,21 @@
   </div>
 
   <div class="field mb-6">
-    <%= form.fields_for :recipe_ingredients do |i| %>
-      <div class="field mb-6">
-        <%= i.label :name %>
-        <%= i.text_field :name %>
-      </div>
-      <div class="field mb-6">
-        <%= i.label :unit %>
-        <%= i.text_field :unit %>
-      </div>
-      <div class="field mb-6">
-        <%= i.label :amount %>
-        <%= i.text_field :amount %>
-      </div>
+    <%= form.fields_for :recipe_ingredients do |ingredients_form| %>
+      <%= ingredients_form.fields_for :ingredient do |ingredient_form| %>
+        <div class="field mb-6">
+          <%= ingredient_form.label :name %>
+          <%= ingredient_form.text_field :name %>
+        </div>
+        <div class="field mb-6">
+          <%= ingredients_form.label :amount %>
+          <%= ingredients_form.text_field :amount %>
+        </div>
+        <div class="field mb-6">
+          <%= ingredient_form.label :unit %>
+          <%= ingredient_form.text_field :unit %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 
