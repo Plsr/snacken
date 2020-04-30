@@ -20,6 +20,24 @@
     <%= form.text_area :description, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
   </div>
 
+  <div class="field mb-6">
+    <%= form.fields_for :recipe_ingredients do |i| %>
+      <div class="field mb-6">
+        <%= i.label :name %>
+        <%= i.text_field :name %>
+      </div>
+      <div class="field mb-6">
+        <%= i.label :unit %>
+        <%= i.text_field :unit %>
+      </div>
+      <div class="field mb-6">
+        <%= i.label :amount %>
+        <%= i.text_field :amount %>
+      </div>
+    <% end %>
+  </div>
+
+
 
   <div class="actions">
     <%= form.submit "Create recipe", class: 'bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded'  %>
