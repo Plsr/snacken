@@ -5,8 +5,6 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    # TODO: Only build one, more should be added dynamically
-    # later on by user input
     @recipe.recipe_ingredients.build.build_ingredient
   end
 
