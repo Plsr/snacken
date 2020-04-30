@@ -19,32 +19,30 @@
     <%= form.label :description, class: 'block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' %>
     <%= form.text_area :description, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
   </div>
-
+  <h3 class="font-bold mb-3 text-gray-700">Ingredients</h3>
   <div class="field mb-6" data-controller="recipe-rows">
     <div data-target="recipe-rows.container">
       <%= form.fields_for :recipe_ingredients do |ingredients_form| %>
         <%= ingredients_form.fields_for :ingredient do |ingredient_form| %>
-          <div data-target="recipe-rows.row">
-            <div class="field mb-6">
-              <%= ingredient_form.label :name %>
-              <%= ingredient_form.text_field :name %>
+          <div class=" flex flex-row" data-target="recipe-rows.row">
+            <div class="field mb-6 mr-3">
+              <%= ingredient_form.label :name, class: 'block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' %>
+              <%= ingredient_form.text_field :name, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
+            </div>
+            <div class="field mb-6 mr-3">
+              <%= ingredients_form.label :amount, class: 'block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' %>
+              <%= ingredients_form.text_field :amount, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
             </div>
             <div class="field mb-6">
-              <%= ingredients_form.label :amount %>
-              <%= ingredients_form.text_field :amount %>
-            </div>
-            <div class="field mb-6">
-              <%= ingredient_form.label :unit %>
-              <%= ingredient_form.text_field :unit %>
+              <%= ingredient_form.label :unit, class: 'block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' %>
+              <%= ingredient_form.text_field :unit, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
             </div>
           </div>
         <% end %>
       <% end %>
     </div>
-    <a href="#" data-action="recipe-rows#addRow">Add row</a>
+    <a href="#" data-action="recipe-rows#addRow" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">+ Add row</a>
   </div>
-
-
 
   <div class="actions">
     <%= form.submit "Create recipe", class: 'bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded'  %>
