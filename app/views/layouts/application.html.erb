@@ -19,6 +19,7 @@
           <%= link_to "Profile", profile_path, class: 'text-teal-600' %>
           <%= link_to "Logout", :logout, method: :post, class: 'text-teal-600' %>
           <%= link_to "Recipes", recipes_path, class: 'text-teal-600' %>
+          <%= link_to "Create Meal Plan", new_meal_plan_path, class: 'text-teal-600' %>
         <% else %>
           <%= link_to "Register", new_user_path, class: 'text-teal-600' %>
           <%= link_to "Login", :login, class: 'text-teal-600' %>

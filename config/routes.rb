@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users, except: [:show, :edit, :index]
   resources :user_sessions, only: [:create]
   resources :recipes
+  resources :meal_plans
 
   # Profile aliases
   get 'login', to: 'user_sessions#new', as: :login
