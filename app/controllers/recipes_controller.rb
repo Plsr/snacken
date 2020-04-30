@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
     # TODO: Only build one, more should be added dynamically
     # later on by user input
-    3.times { @recipe.recipe_ingredients.build.build_ingredient }
+    @recipe.recipe_ingredients.build.build_ingredient
   end
 
   def show

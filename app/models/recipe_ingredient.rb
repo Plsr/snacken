@@ -15,4 +15,8 @@ class RecipeIngredient < ApplicationRecord
   def ingredient_unit
     ingredient.unit
   end
+
+  def ingredient_attributes=(attributes)
+    self.ingredient = Ingredient.find_or_create_by(name: attributes[:name])
+  end
 end
