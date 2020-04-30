@@ -9,15 +9,16 @@ export default class extends Controller {
     }
   }
 
+  // TODO: Clean up
   addRow(event) {
     console.log('Registered Click')
     console.log(this.currentRowCount)
     event.preventDefault()
     this.currentRowCount++
 
-    // TODO: This removes already filled inputs
-    this.containerTarget.innerHTML += `<div data-target="recipe-rows.row">
-  <div class="field mb-6">
+    const wrapperDiv = document.createElement('div')
+    wrapperDiv.setAttribute('data-target', 'recipe-rows.row')
+    wrapperDiv.innerHTML = `<div class="field mb-6">
     <label for="recipe_recipe_ingredients_attributes_${this.currentRowCount}_ingredient_attributes_name">Name</label>
     <input type="text" name="recipe[recipe_ingredients_attributes][${this.currentRowCount}][ingredient_attributes][name]" id="recipe_recipe_ingredients_attributes_${this.currentRowCount}_ingredient_attributes_name">
   </div>
@@ -28,7 +29,8 @@ export default class extends Controller {
   <div class="field mb-6">
     <label for="recipe_recipe_ingredients_attributes_${this.currentRowCount}_ingredient_attributes_unit">Unit</label>
     <input type="text" name="recipe[recipe_ingredients_attributes][${this.currentRowCount}][ingredient_attributes][unit]" id="recipe_recipe_ingredients_attributes_${this.currentRowCount}_ingredient_attributes_unit">
-  </div>
-</div>`
+  </div>`
+
+    this.containerTarget.appendChild(wrapperDiv)
   }
 }
