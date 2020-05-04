@@ -7,7 +7,7 @@ class MealPlansController < ApplicationController
     @meal_plan = MealPlan.new(meal_plan_params)
     @meal_plan.user = current_user
     needed_recipes = @meal_plan.for_days
-    recipes = Recipe.order("RANDOM()").limit(needed_recipes)
+    recipes = Recipe.ordered_random.limit(needed_recipes)
     @meal_plan.recipes << recipes
 
     if @meal_plan.save

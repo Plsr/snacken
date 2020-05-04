@@ -6,4 +6,6 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :recipe_ingredients
 
   validates_presence_of :name
+
+  scope :ordered_random, -> { order("RANDOM()") }
 end
