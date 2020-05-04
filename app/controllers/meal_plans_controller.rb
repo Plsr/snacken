@@ -1,12 +1,12 @@
 class MealPlansController < ApplicationController
   def new
-    @meal_plan = MealPlan.new(for_days: 2)
+    @meal_plan = MealPlan.new(number_of_meals: 2)
   end
 
   def create
     @meal_plan = MealPlan.new(meal_plan_params)
     @meal_plan.user = current_user
-    needed_recipes = @meal_plan.for_days
+    needed_recipes = @meal_plan.number_of_meals
     recipes = Recipe.ordered_random.limit(needed_recipes)
     @meal_plan.recipes << recipes
 
@@ -24,6 +24,6 @@ class MealPlansController < ApplicationController
   private
 
   def meal_plan_params
-    params.require(:meal_plan).permit(:for_days)
+    params.require(:meal_plan).permit(:number_of_meals)
   end
 end
