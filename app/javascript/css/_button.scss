@@ -1,0 +1,10 @@
+.Button {
+}
+
+.TextButton {
+  @apply font-bold text-sm text-teal-500 uppercase p-2 rounded;
+
+   &:hover {
+     @apply bg-gray-200
+   }
+}

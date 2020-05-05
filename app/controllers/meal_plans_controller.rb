@@ -3,6 +3,10 @@ class MealPlansController < ApplicationController
     @meal_plan = MealPlan.new(number_of_meals: 2)
   end
 
+  def index
+    @meal_plans = current_user.meal_plans
+  end
+
   def create
     @meal_plan = MealPlan.new(meal_plan_params)
     @meal_plan.user = current_user

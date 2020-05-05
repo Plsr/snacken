@@ -1,0 +1,20 @@
+<h1 class="text-3xl mb-4 mt-8">Meal Plans</h1>
+<% if @meal_plans.any? %>
+  <% @meal_plans.each_with_index do |meal_plan, index| %>
+    <% if index == 0 %>
+      <h2 class="text-xl mb-2 mt-4">Most recent</h2>
+    <% end %>
+    <div class="mb-4 Card">
+      <div class="mb-2">
+        <h3>Meal plan from <%= meal_plan.created_at.strftime("%d %b, %Y at %H:%M") %></h3>
+        <p><%= meal_plan.recipes.count %> Recipes</p>
+      </div>
+      <%= link_to "Show", meal_plan_path(meal_plan), class: "TextButton" %>
+    </div>
+    <% if index == 0 %>
+      <div class="mb-16"></div>
+    <% end %>
+  <% end %>
+<% else %>
+  <p>No meal plans yet</p>
+<% end %>
