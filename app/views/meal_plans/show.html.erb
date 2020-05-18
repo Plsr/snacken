@@ -1,4 +1,14 @@
-<h1>Meals</h1>
+<h1 class="mt-4 mb-8">Meals</h1>
 <% @meal_plan.recipes.each do |recipe| %>
-  <p><%= recipe.name %></p>
+  <div class="mb-4">
+    <p><%= recipe.name %></p>
+    <%= link_to 'Swap recipe', meal_plan_swap_recipe_path(@meal_plan.id, recipe_id: recipe.id), method: :post %>
+    <button>Change recipe</button>
+  </div>
+<% end %>
+
+<% if @meal_plan.recipes_changable %>
+  <p>Recipes changable</p>
+<% else %>
+  <p>Recipes not changable</p>
 <% end %>
