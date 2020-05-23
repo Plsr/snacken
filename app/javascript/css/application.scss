@@ -1,10 +1,12 @@
 // Tailwind CSS
 @import "tailwindcss/base";
+@import "base";
 @import "tailwindcss/components";
 
 // Components
 @import "card";
 @import "button";
+@import "text";
 
 // Tailwind utilities have to come last
 @import "tailwindcss/utilities";

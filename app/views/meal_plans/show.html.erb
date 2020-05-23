@@ -1,14 +1,23 @@
-<h1 class="mt-4 mb-8">Meals</h1>
-<% @meal_plan.recipes.each do |recipe| %>
-  <div class="mb-4">
-    <p><%= recipe.name %></p>
-    <%= link_to 'Swap recipe', meal_plan_swap_recipe_path(@meal_plan.id, recipe_id: recipe.id), method: :post %>
-    <button>Change recipe</button>
-  </div>
-<% end %>
+<div class="mt-8 mb-8">
+  <h1 class="PageHeadline">Meal Plan (<%= @meal_plan.recipes.count %> Meals)</h1>
+  <small>Created at <%= @meal_plan.created_at.strftime("%d %b, %Y at %H:%M") %></small>
+</div>
+<div class="flex flex-wrap">
+  <% @meal_plan.recipes.each do |recipe| %>
+    <div class="Card mb-8 flex-1 mr-4">
+      <h2 class="CardHeadline mb-4"><%= recipe.name %></h2>
+      <% if @meal_plan.recipes_changable %>
+        <%= link_to 'Swap out recipe', meal_plan_swap_recipe_path(@meal_plan.id, recipe_id: recipe.id), method: :post, class: 'SecondaryButton' %>
+      <% else %>
+        <span class="SecondaryButton asDisabled">Swap out recipe</span>
+      <% end %>
+    </div>
+  <% end %>
+</div>
 
-<% if @meal_plan.recipes_changable %>
-  <p>Recipes changable</p>
-<% else %>
-  <p>Recipes not changable</p>
+<% if !@meal_plan.recipes_changable %>
+  <div class="text-center">
+    <p>Recipes are not changable since you do not have enought recipes in your database</p>
+    <%= link_to 'Add more', new_recipe_path %>
+  </div>
 <% end %>
