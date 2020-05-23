@@ -1,24 +1,12 @@
-# README
+# Dnnr
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple meal planner to save you the time discussing with yourself or your significatn other. This is basically the value 
+proposition: If you use this, it will give you extra time to your life. Message me to invest in this now. I'll even add AI and
+probably do some blockchaining.
 
-Things you may want to cover:
+## Todo
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- [ ] Group items in the shopping list and sum up the amounts
+- [ ] Make the shopping list an editable and checkable entity
+- [ ] Allow shopping list to be exported to other services
+- [ ] Style `recipe#show`
