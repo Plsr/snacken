@@ -1,9 +1,24 @@
-<h1><%= @recipe.name %></h1>
+<h1 class="PageHeadline mt-4 mb-2"><%= @recipe.name %></h1>
 <p><%= @recipe.description %></p>
 
-<h2>Ingredients</h2>
-<% @recipe.recipe_ingredients.each do |ingr| %>
-  <p><%= ingr.ingredient_name %></p>
-  <p><%= ingr.amount %></p>
-  <p><%= ingr.ingredient_unit %></p>
-<% end %>
+<h2 class="SecondaryHeadline mt-8 mb-2">Ingredients</h2>
+<table class="table-auto">
+  <thead>
+    <tr>
+      <th class="px-4 py-2">Ingredient</th>
+      <th class="px-4 py-2">Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipe.recipe_ingredients.each do |ingr| %>
+      <tr class="odd:bg-gray-200">
+        <td class="border px-4 py-2">
+          <p><%= ingr.ingredient_name %></p>
+        </td>
+        <td class="border px-4 py-2">
+          <p><%= ingr.amount %> <%= ingr.ingredient_unit %></p>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
