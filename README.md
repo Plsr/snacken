@@ -13,7 +13,7 @@ This is very much WIP
 - [ ] Group items in the shopping list and sum up the amounts
 - [ ] Make the shopping list an editable and checkable entity
 - [ ] Allow shopping list to be exported to other services
-- [ x ] Style `recipe#show`
+- [x] Style `recipe#show`
 - [ ] Make the whole thing usable on mobile devices (because I was lazy)
 - [ ] Restrict registration so that people need a key or something
 - [ ] Add `recipe#edit` and `recipe#delete` actions
