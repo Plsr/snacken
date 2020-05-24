@@ -17,3 +17,4 @@ This is very much WIP
 - [ ] Make the whole thing usable on mobile devices (because I was lazy)
 - [ ] Restrict registration so that people need a key or something
 - [ ] Add `recipe#edit` and `recipe#delete` actions
+- [ ] Syling for flashes
