@@ -18,7 +18,7 @@
 <% if !@meal_plan.recipes_changable %>
   <div class="text-center">
     <p>Recipes are not changable since you do not have enought recipes in your database</p>
-    <%= link_to 'Add more', new_recipe_path %>
+    <%= link_to 'Add more', new_recipe_path, class: 'TextButton mt-2 inline-block' %>
   </div>
 <% end %>
 
