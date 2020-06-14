@@ -1,0 +1,14 @@
+<div data-controller="mobile-menu" class="shadow-md p-6 bg-white">
+  <div class="flex justify-between">
+    <div>
+      <%= link_to 'dnnr', root_path, class: 'font-extrabold' %>
+    </div>
+    <nav class="hidden md:block">
+      <%= render 'layouts/navigation' %>
+    </nav>
+    <div data-action="click->mobile-menu#toggleMenu" data-target="mobile-menu.menuButton" class="md:hidden">Show Menu</div>
+  </div>
+  <nav data-target="mobile-menu.menu" class="hidden md:hidden bg-white mt-4">
+    <%= render 'layouts/navigation' %>
+  </nav>
+</div>

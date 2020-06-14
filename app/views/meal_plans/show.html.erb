@@ -4,8 +4,11 @@
 </div>
 <div class="flex flex-wrap">
   <% @meal_plan.recipes.each do |recipe| %>
-    <div class="Card mb-8 flex-1 mr-4">
+    <div class="Card mb-8 md:flex-1 mr-4 w-full">
       <h2 class="CardHeadline mb-4"><%= recipe.name %></h2>
+      <% if recipe.description.present? %>
+        <p class="mb-4"><%= recipe.description %></p>
+      <% end %>
       <% if @meal_plan.recipes_changable %>
         <%= link_to 'Swap out recipe', meal_plan_swap_recipe_path(@meal_plan.id, recipe_id: recipe.id), method: :post, class: 'SecondaryButton' %>
       <% else %>

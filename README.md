@@ -14,7 +14,8 @@ This is very much WIP
 - [ ] Make the shopping list an editable and checkable entity
 - [ ] Allow shopping list to be exported to other services
 - [x] Style `recipe#show`
-- [ ] Make the whole thing usable on mobile devices (because I was lazy)
+- [x] Make the whole thing usable on mobile devices (because I was lazy)
 - [ ] Restrict registration so that people need a key or something
 - [ ] Add `recipe#edit` and `recipe#delete` actions
 - [ ] Syling for flashes
+- [ ] Update profile page
