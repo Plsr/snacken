@@ -1,10 +1,10 @@
 <div class="block">
   <% if current_user %>
     <%= link_to "Profile", profile_path, class: 'md:inline block text-teal-600 md:mr-2 md:mb-0 mb-2' %>
-    <%= link_to "Logout", :logout, method: :post, class: 'md:inline block text-teal-600 md:mr-2 md:mb-0 mb-2' %>
     <%= link_to "Recipes", recipes_path, class: 'md:inline block text-teal-600 md:mr-2 md:mb-0 mb-2' %>
     <%= link_to "Create Meal Plan", new_meal_plan_path, class: 'md:inline block text-teal-600 md:mr-2 md:mb-0 mb-2' %>
-    <%= link_to "Meal Plans", meal_plans_path, class: 'md:inline block text-teal-600' %>
+    <%= link_to "Meal Plans", meal_plans_path, class: 'md:inline block text-teal-600 md:mr-2 md:mb-0 mb-2' %>
+    <%= link_to "Logout", :logout, method: :post, class: 'md:inline block text-teal-600 ' %>
   <% else %>
     <%= link_to "Register", new_user_path, class: 'md:inline block text-teal-600 md:mr-2 md:mb-0 mb-2' %>
     <%= link_to "Login", new_user_path, class: 'md:inline block text-teal-600' %>
