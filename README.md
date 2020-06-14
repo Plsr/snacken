@@ -18,3 +18,4 @@ This is very much WIP
 - [ ] Restrict registration so that people need a key or something
 - [ ] Add `recipe#edit` and `recipe#delete` actions
 - [ ] Syling for flashes
+- [ ] Update profile page
