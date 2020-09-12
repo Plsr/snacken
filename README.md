@@ -10,12 +10,17 @@ This is very much WIP
 
 ## Todo
 
+### Shopping List
 - [ ] Group items in the shopping list and sum up the amounts
 - [ ] Make the shopping list an editable and checkable entity
 - [ ] Allow shopping list to be exported to other services
+
+### Styling & General functionality
 - [x] Style `recipe#show`
 - [x] Make the whole thing usable on mobile devices (because I was lazy)
-- [ ] Restrict registration so that people need a key or something
 - [ ] Add `recipe#edit` and `recipe#delete` actions
 - [ ] Syling for flashes
 - [ ] Update profile page
+
+### Todo before alpha
+- [ ] Restrict registration so that people need a key or something
