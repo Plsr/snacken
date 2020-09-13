@@ -21,6 +21,18 @@ class MealPlansController < ApplicationController
     end
   end
 
+  def update_with_shopping_list
+    @meal_plan = MealPlan.find(params[:id])
+    @shopping_list = ShoppingList.build_from_meal_plan(@meal_plan, current_user)
+
+    if @shopping_list.save
+      redirect_to meal_plan_path(@meal_plan)
+    else
+      # TODO: Pass error message
+      redirect_to meal_plan_path(@meal_plan)
+    end
+  end
+
   def swap_recipe
     @meal_plan = MealPlan.find(params[:id])
     raise ActionController::RoutingError.new('Not Found') unless meal_plan_accessible? 

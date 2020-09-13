@@ -12,7 +12,8 @@ This is very much WIP
 
 ### Shopping List
 - [ ] Group items in the shopping list and sum up the amounts
-- [ ] Make the shopping list an editable and checkable entity
+- [x] Make the shopping list a distinc entity
+- [ ] Allow shopping list items to be checked off
 - [ ] Allow shopping list to be exported to other services
 
 ### Styling & General functionality
