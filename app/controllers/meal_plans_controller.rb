@@ -13,7 +13,7 @@ class MealPlansController < ApplicationController
     needed_recipes = @meal_plan.number_of_meals
     recipes = Recipe.ordered_random.limit(needed_recipes)
     @meal_plan.recipes << recipes
-;
+
     if @meal_plan.save
       redirect_to meal_plan_path(@meal_plan)
     else
