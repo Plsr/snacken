@@ -13,11 +13,23 @@ class MealPlansController < ApplicationController
     needed_recipes = @meal_plan.number_of_meals
     recipes = Recipe.ordered_random.limit(needed_recipes)
     @meal_plan.recipes << recipes
-;
+
     if @meal_plan.save
       redirect_to meal_plan_path(@meal_plan)
     else
       render :new
+    end
+  end
+
+  def update_with_shopping_list
+    @meal_plan = MealPlan.find(params[:id])
+    @shopping_list = ShoppingList.build_from_meal_plan(@meal_plan, current_user)
+
+    if @shopping_list.save
+      redirect_to meal_plan_path(@meal_plan)
+    else
+      # TODO: Pass error message
+      redirect_to meal_plan_path(@meal_plan)
     end
   end
 

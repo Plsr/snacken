@@ -34,8 +34,8 @@
               <%= ingredients_form.text_field :amount, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
             </div>
             <div class="field mb-6">
-              <%= ingredient_form.label :unit, class: 'block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' %>
-              <%= ingredient_form.text_field :unit, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
+              <%= ingredients_form.label :unit, class: 'block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' %>
+              <%= ingredients_form.select :unit, options_for_select(RecipeIngredient::ALLOWED_UNITS), {}, { class: "appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" } %>
             </div>
           </div>
         <% end %>

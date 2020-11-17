@@ -11,21 +11,24 @@
       <% end %>
       <% if @meal_plan.recipes_changable %>
         <%= link_to 'Swap out recipe', meal_plan_swap_recipe_path(@meal_plan.id, recipe_id: recipe.id), method: :post, class: 'SecondaryButton' %>
-      <% else %>
-        <span class="SecondaryButton asDisabled">Swap out recipe</span>
       <% end %>
     </div>
   <% end %>
 </div>
 
-<% if !@meal_plan.recipes_changable %>
+<% if !@meal_plan.recipes_changable && !@meal_plan.enough_recipes? %>
   <div class="text-center">
     <p>Recipes are not changable since you do not have enought recipes in your database</p>
     <%= link_to 'Add more', new_recipe_path, class: 'TextButton mt-2 inline-block' %>
   </div>
 <% end %>
 
-<div class="mt-8">
+<% if @meal_plan.recipes_changable %>
+  <%= link_to 'Commit', meal_plan_with_shopping_list_path(@meal_plan.id), method: :post, class: 'SecondaryButton' %>
+<% end %>
+
+<% if @meal_plan.shopping_list %>
+  <div class="mt-8">
   <h2 class="SecondaryHeadline ">Shopping List</h2>
   <table class="table-auto">
     <thead>
@@ -35,18 +38,19 @@
       </tr>
     </thead>
     <tbody>
-      <% @meal_plan.recipes.each do |recipe| %>
-        <% recipe.recipe_ingredients.each do |ingredient| %>
-          <tr class="bg-white even:bg-gray-300">
-            <td class="border px-4 py2">
-              <%= ingredient.ingredient_name %> 
-            </td>
-            <td class="border px-4 py2">
-              <%= ingredient.amount %><%= ingredient.ingredient_unit %>
-            </td>
-          </tr>
-        <% end %>
+      <% @meal_plan.shopping_list.shopping_list_ingredients.each do |ingredient| %>
+        <tr class="bg-white even:bg-gray-300">
+          <td class="border px-4 py2">
+            <%= ingredient.ingredient_name %> 
+          </td>
+          <td class="border px-4 py2">
+            <%= ingredient.amount %><%= ingredient.unit %>
+          </td>
+        </tr>
       <% end %>
     </tbody>
   </table>
 </div>
+<% end %>
+
+

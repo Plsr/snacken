@@ -1,12 +1,8 @@
-class RecipeIngredient < ApplicationRecord
-  attr_reader :units
+class ShoppingListIngredient < ApplicationRecord
+  belongs_to :shopping_list
   belongs_to :ingredient
-  belongs_to :recipe
-
-  accepts_nested_attributes_for :ingredient
 
   validates_presence_of :ingredient
-  validates_presence_of :recipe
   validates_presence_of :amount
   validates_presence_of :unit
   validate :unit_is_valid

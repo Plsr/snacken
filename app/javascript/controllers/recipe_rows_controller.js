@@ -9,10 +9,10 @@ export default class extends Controller {
     }
   }
 
-  // TODO: Clean up
+  // TODO: Pass select options through data field so that we don't
+  // have to update this file every time the backend changes.
+  // TODO: Clean up, this is ugly and error-prone.
   addRow(event) {
-    console.log('Registered Click')
-    console.log(this.currentRowCount)
     event.preventDefault()
     this.currentRowCount++
 
@@ -28,11 +28,19 @@ export default class extends Controller {
         <label for="recipe_recipe_ingredients_attributes_${this.currentRowCount}_amount" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Amount</label>
         <input type="text" name="recipe[recipe_ingredients_attributes][${this.currentRowCount}][amount]" id="recipe_recipe_ingredients_attributes_${this.currentRowCount}_amount" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
       </div>
-      <div class="field mb-6">
-        <label for="recipe_recipe_ingredients_attributes_${this.currentRowCount}_ingredient_attributes_unit" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Unit</label>
-        <input type="text" name="recipe[recipe_ingredients_attributes][${this.currentRowCount}][ingredient_attributes][unit]" id="recipe_recipe_ingredients_attributes_${this.currentRowCount}_ingredient_attributes_unit" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-      </div>
+<div class="field mb-6">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="recipe_recipe_ingredients_attributes_${this.currentRowCount}_unit">Unit</label>
+              <select class="appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="recipe[recipe_ingredients_attributes][${this.currentRowCount}][unit]" id="recipe_recipe_ingredients_attributes_${this.currentRowCount}_unit"><option value="ml">ml</option>
+<option value="l">l</option>
+<option value="g">g</option>
+<option value="mg">mg</option>
+<option value="pcs">pcs</option>
+<option value="pckgs">pckgs</option>
+<option value="tsp">tsp</option>
+<option value="tbsp">tbsp</option></select>
+            </div>
   `
+
 
     this.containerTarget.appendChild(wrapperDiv)
   }
