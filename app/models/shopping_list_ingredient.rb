@@ -3,7 +3,6 @@ class ShoppingListIngredient < ApplicationRecord
   belongs_to :ingredient
 
   validates_presence_of :ingredient
-  validates_presence_of :recipe
   validates_presence_of :amount
   validates_presence_of :unit
   validate :unit_is_valid
