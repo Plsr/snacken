@@ -26,7 +26,17 @@ jobs:
         # uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
         with:
           ruby-version: 2.7.1
+      - name: Install PostgreSQL 11 client
+        run: |
+          sudo apt-get -yqq install libpq-dev
       - name: Install dependencies
         run: bundle install
+      - name: Setup App
+        env:
+          PGHOST: localhost
+          PGUSER: postgres
+          RAILS_ENV: test
+        run: |
+          bin/rails db:setup
       - name: Run tests
         run: bundle exec rspec
