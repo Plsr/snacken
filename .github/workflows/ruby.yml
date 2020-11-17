@@ -37,7 +37,7 @@ jobs:
           sudo apt-get -yqq install libpq-dev
       - name: Install dependencies
         run: bundle install
-     - name: Setup Database
+      - name: Setup Database
         run: |
           cp config/database.yml.github-actions config/database.yml
           bundle exec rake db:create
