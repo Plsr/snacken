@@ -11,7 +11,7 @@ This is very much WIP
 ## Todo
 
 ### Shopping List
-- [ ] Group items in the shopping list and sum up the amounts
+- [x] Group items in the shopping list and sum up the amounts
 - [x] Make the shopping list a distinc entity
 - [ ] Allow shopping list items to be checked off
 - [ ] Allow shopping list to be exported to other services
