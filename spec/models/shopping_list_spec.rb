@@ -28,7 +28,6 @@ RSpec.describe ShoppingList, type: :model do
       expect(ingr_in_shopping_list.amount.first).to eql(expected_string)
     end
 
-    # TODO: DRY up
     describe "groups to recipe ingredients if they are the same" do
       before(:each) do
         @dup_recipe = FactoryBot.create(:recipe)
@@ -73,10 +72,6 @@ RSpec.describe ShoppingList, type: :model do
         shopping_list.save
         
         @meal_plan.reload
-        #pp @meal_plan.recipes.last.recipe_ingredients
-         
-        #  pp 'Shopping list items'
-        #  pp shopping_list.shopping_list_ingredients
 
         shopping_list_item = shopping_list.shopping_list_ingredients.find_by(ingredient_id: @dup_ingr.ingredient.id)
 
