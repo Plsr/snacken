@@ -35,7 +35,7 @@ class MealPlansController < ApplicationController
 
   def swap_recipe
     @meal_plan = MealPlan.find(params[:id])
-    raise ActionController::RoutingError.new('Not Found') unless meal_plan_accessible? 
+    raise ActionController::RoutingError.new('Not Found') unless meal_plan_accessible?
     return unless @meal_plan.recipes_changable
 
     recipe_ids = @meal_plan.recipe_ids
@@ -55,6 +55,7 @@ class MealPlansController < ApplicationController
 
   def show
     @meal_plan = current_user.meal_plans.find(params[:id])
+    @meal_plan
   end
 
   private
