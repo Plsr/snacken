@@ -5,7 +5,6 @@ export default class extends Controller {
   static targets = ['itemList']
 
   toggle(event) {
-    console.log(event)
     event.preventDefault()
     event.stopPropagation()
     const id = event.currentTarget.dataset.id
