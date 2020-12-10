@@ -38,11 +38,11 @@
           <th class="px-4 py-2">Amount</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody data-target="shopping-list-item.itemList">
         <% @shopping_list_ingredients.each do |ingredient| %>
-          <tr class="bg-white even:bg-gray-300">
+          <tr class="bg-white even:bg-gray-300" data-action="click->shopping-list-item#toggle" data-id="<%= ingredient.id %>">
             <td class="border px-4 py2">
-              <input <%= ingredient.checked_off? ? 'checked' : nil %> type="checkbox" data-id="<%= ingredient.id %>" data-action="click->shopping-list-item#toggle" />
+              <input style="pointer-events: none" <%= ingredient.checked_off? ? 'checked' : nil %> type="checkbox"   />
             </td>
             <td class="border px-4 py2">
               <%= ingredient.ingredient_name %> 
