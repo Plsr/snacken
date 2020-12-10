@@ -4,10 +4,4 @@ class ShoppingListsController < ApplicationController
     newState = shplst_ingredient.checked_off? ? nil : Time.now
     shplst_ingredient.update_attribute(:checked_off_at, newState)
   end
-
-  private
-
-  def shopping_list_params
-    params.require(:shopping_list).permit(:shopping_list_ingredients[])
-  end
 end
