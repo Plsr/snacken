@@ -12,4 +12,8 @@ class ShoppingListIngredient < ApplicationRecord
   def ingredient_attributes=(attributes)
     self.ingredient = Ingredient.find_or_create_by(name: attributes[:name])
   end
+
+  def checked_off?
+    !checked_off_at.blank?
+  end
 end
