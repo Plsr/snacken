@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :meal_plans
   post 'swap_recipe/:id', to: 'meal_plans#swap_recipe', as: :meal_plan_swap_recipe
   post 'update_with_shopping_list/:id', to: 'meal_plans#update_with_shopping_list', as: :meal_plan_with_shopping_list
+  post 'toggle_checked_off/:id', to: 'shopping_lists#toggle_ingredient_checked_off', as: :shopping_list_toggle_checked_off
 
   # Profile aliases
   get 'login', to: 'user_sessions#new', as: :login
