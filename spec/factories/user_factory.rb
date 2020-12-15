@@ -5,5 +5,6 @@ FactoryBot.define do
     sequence :email do |n|
       "user#{n}@example.com"
     end
+    invite_code { FactoryBot.create(:invite_code).code }
   end
 end
