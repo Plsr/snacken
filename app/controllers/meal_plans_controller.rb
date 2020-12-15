@@ -4,7 +4,7 @@ class MealPlansController < ApplicationController
   end
 
   def index
-    @meal_plans = current_user.meal_plans
+    @meal_plans = current_user.meal_plans.order(created_at: :desc)
   end
 
   def create
