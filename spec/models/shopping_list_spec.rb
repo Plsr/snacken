@@ -81,4 +81,26 @@ RSpec.describe ShoppingList, type: :model do
       end
     end
   end
+
+  describe '#regenerate_ingredients!' do
+    let(:meal_plan) { FactoryBot.create(:meal_plan) }
+    let(:user) { FactoryBot.create(:user) }
+
+    it 'updates the ingredients accordingly' do
+      shopping_list = ShoppingList.build_from_meal_plan(meal_plan, user)
+      shopping_list.save!
+      deleted_ingredient_ids = meal_plan.recipes.first.recipe_ingredients.pluck(:ingredient_id)
+
+      meal_plan.recipes.delete(meal_plan.recipes.first.id)
+      shopping_list.regenerate_ingredients!
+
+      expect(shopping_list.shopping_list_ingredients.pluck(:ingredient_id)).not_to include(deleted_ingredient_ids)
+
+      
+
+    end
+
+    it 'deletes the unused record from the database' do
+    end
+  end
 end
