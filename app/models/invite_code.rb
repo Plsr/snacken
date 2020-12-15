@@ -12,4 +12,8 @@ class InviteCode < ApplicationRecord
   def invalidate!
     update_attribute(:used_at, Time.now) 
   end
+
+  def used?
+    !self.used_at.blank?
+  end
 end
