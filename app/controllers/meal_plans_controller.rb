@@ -55,7 +55,9 @@ class MealPlansController < ApplicationController
 
   def show
     @meal_plan = current_user.meal_plans.find(params[:id])
-    @shopping_list_ingredients = @meal_plan.shopping_list.shopping_list_ingredients.checked_off_last
+    if @meal_plan.shopping_list.present?
+      @shopping_list_ingredients = @meal_plan.shopping_list.shopping_list_ingredients.checked_off_last
+    end
   end
 
   private

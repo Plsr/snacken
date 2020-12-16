@@ -22,5 +22,6 @@ class ShoppingList < ApplicationRecord
     shopping_list_ingredients = ShoppingListIngredientsService.new(recipe_ingredients).create_ingredients
     self.shopping_list_ingredients.destroy_all
     self.shopping_list_ingredients.build(shopping_list_ingredients)
+    self.save
   end
 end

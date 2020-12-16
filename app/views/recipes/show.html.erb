@@ -1,6 +1,8 @@
 <h1 class="PageHeadline mt-4 mb-2"><%= @recipe.name %></h1>
 <p><%= @recipe.description %></p>
 
+<%= link_to 'Edit', edit_recipe_path(@recipe) %>
+
 <h2 class="SecondaryHeadline mt-8 mb-2">Ingredients</h2>
 <table class="table-auto">
   <thead>
