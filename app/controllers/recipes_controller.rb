@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = current_user.recipes.find(params[:id])
     raise ActionController::RoutingError.new('Not Found') unless recipe_accessible?
   end
 
@@ -25,18 +25,27 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
+    @recipe = current_user.recipes.find(params[:id])
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
+    @recipe = current_user.recipes.find(params[:id])
     if @recipe.update(recipe_params)
       if recipe_in_active_meal_plan(@recipe.id)
         current_meal_plan.shopping_list.regenerate_ingredients!
       end
-      redirect_to recipes_path, notice: 'Recipe updated'
+      redirect_to recipe_path(@recipe), notice: 'Recipe updated'
     else
       render :edit
+    end
+  end
+
+  def destroy
+    @recipe = current_user.recipes.find(params[:id])
+    if @recipe.destroy
+      redirect_to recipes_path, notice: 'Recipe deleted'
+    else
+      render :show
     end
   end
 

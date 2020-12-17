@@ -32,7 +32,7 @@ export default class extends Controller {
         <label for="recipe_recipe_ingredients_attributes_${this.currentRowCount}_amount" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Amount</label>
         <input type="text" name="recipe[recipe_ingredients_attributes][${this.currentRowCount}][amount]" id="recipe_recipe_ingredients_attributes_${this.currentRowCount}_amount" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
       </div>
-<div class="field mb-6">
+<div class="field mb-6 mr-3">
               <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="recipe_recipe_ingredients_attributes_${this.currentRowCount}_unit">Unit</label>
               <select class="appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="recipe[recipe_ingredients_attributes][${this.currentRowCount}][unit]" id="recipe_recipe_ingredients_attributes_${this.currentRowCount}_unit"><option value="ml">ml</option>
 <option value="l">l</option>
@@ -43,7 +43,7 @@ export default class extends Controller {
 <option value="tsp">tsp</option>
 <option value="tbsp">tbsp</option></select>
             </div>
-            <div data-action="click->unsaved-recipe-row#remove">Remove</div>
+            <div class="cursor-pointer self-center bg-red-300 hover:bg-red-400 text-gray-800 py-2 px-4 rounded" data-action="click->unsaved-recipe-row#remove">Remove</div>
   `;
 
     this.containerTarget.appendChild(wrapperDiv);
