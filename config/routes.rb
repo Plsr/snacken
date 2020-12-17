@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   # Profile aliases
   get 'login', to: 'user_sessions#new', as: :login
   post 'logout', to: 'user_sessions#destroy', as: :logout
-  get 'profile', to: 'users#show', as: :profile
   get 'edit_profile', to: 'users#edit', as: :edit_profile
 
 
