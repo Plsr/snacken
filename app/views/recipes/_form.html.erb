@@ -37,7 +37,7 @@
               <%= ingredients_form.label :unit, class: 'block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' %>
               <%= ingredients_form.select :unit, options_for_select(RecipeIngredient::ALLOWED_UNITS), {}, { class: "appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" } %>
             </div>
-            <%= ingredients_form.hidden_field :_destroy, data: { target: 'saved-recipe-row.destroy-toggle' } %>
+            <%= ingredients_form.hidden_field :_destroy %>
             <div data-action="click->saved-recipe-row#markForDelete" class="cursor-pointer self-center bg-red-300 hover:bg-red-400 text-gray-800 py-2 px-4 rounded">Remove</div>
           </div>
         <% end %>
