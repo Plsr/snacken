@@ -3,6 +3,8 @@ class MealPlan < ApplicationRecord
   has_one :shopping_list
   has_and_belongs_to_many :recipes
 
+  scope :most_recent, -> { order('created_at DESC').first }
+
   def recipes_changable
     enough_recipes? && !shopping_list.present?
   end
