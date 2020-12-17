@@ -20,7 +20,7 @@
     <%= form.text_area :description, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
   </div>
   <h3 class="font-bold mb-3 text-gray-700">Ingredients</h3>
-  <div class="field mb-6" data-controller="recipe-rows">
+  <div class="field mb-6" data-controller="recipe-rows saved-recipe-row">
     <div data-target="recipe-rows.container">
       <%= form.fields_for :recipe_ingredients do |ingredients_form| %>
         <%= ingredients_form.fields_for :ingredient do |ingredient_form| %>
@@ -37,6 +37,8 @@
               <%= ingredients_form.label :unit, class: 'block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' %>
               <%= ingredients_form.select :unit, options_for_select(RecipeIngredient::ALLOWED_UNITS), {}, { class: "appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" } %>
             </div>
+            <%= ingredients_form.hidden_field :_destroy, data: { target: 'saved-recipe-row.destroy-toggle' } %>
+            <div data-action="click->saved-recipe-row#markForDelete">Remove</div>
           </div>
         <% end %>
       <% end %>

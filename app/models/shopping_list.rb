@@ -5,7 +5,6 @@ class ShoppingList < ApplicationRecord
 
   def self.build_from_meal_plan(meal_plan, user)
     recipe_ingredients = meal_plan.recipes.map { |rec| rec.recipe_ingredients }.flatten
-    # shopping_list_ingredients = create_ingredients_from(recipe_ingredients)
     shopping_list_ingredients = ShoppingListIngredientsService.new(recipe_ingredients).create_ingredients
 
     shopping_list = ShoppingList.new(

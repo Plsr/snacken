@@ -52,7 +52,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:name, :description, :recipe_ingredients_attributes => [:id, :amount, :unit, :ingredient_attributes => [:name]])
+    params.require(:recipe).permit(:name, :description, :recipe_ingredients_attributes => [:id, :amount, :unit, :_destroy, :ingredient_attributes => [:name]])
   end
 
   def recipe_accessible?

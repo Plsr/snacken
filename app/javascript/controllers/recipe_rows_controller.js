@@ -1,11 +1,11 @@
-import { Controller } from 'stimulus'
+import { Controller } from "stimulus";
 
 export default class extends Controller {
-  static targets = ['row', 'container']
+  static targets = ["row", "container"];
 
   connect() {
     if (this.hasRowTarget) {
-      this.currentRowCount = this.rowTargets.length - 1
+      this.currentRowCount = this.rowTargets.length - 1;
     }
   }
 
@@ -13,12 +13,16 @@ export default class extends Controller {
   // have to update this file every time the backend changes.
   // TODO: Clean up, this is ugly and error-prone.
   addRow(event) {
-    event.preventDefault()
-    this.currentRowCount++
+    event.preventDefault();
+    this.currentRowCount++;
 
-    const wrapperDiv = document.createElement('div')
-    wrapperDiv.setAttribute('data-target', 'recipe-rows.row')
-    wrapperDiv.setAttribute('class', 'flex flex-grow')
+    const wrapperDiv = document.createElement("div");
+    wrapperDiv.setAttribute(
+      "data-target",
+      "recipe-rows.row unsaved-recipe-row.row"
+    );
+    wrapperDiv.setAttribute("data-controller", "unsaved-recipe-row");
+    wrapperDiv.setAttribute("class", "flex flex-grow");
     wrapperDiv.innerHTML = `
       <div class="field mb-6 mr-3">
         <label for="recipe_recipe_ingredients_attributes_${this.currentRowCount}_ingredient_attributes_name" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Name</label>
@@ -39,9 +43,9 @@ export default class extends Controller {
 <option value="tsp">tsp</option>
 <option value="tbsp">tbsp</option></select>
             </div>
-  `
+            <div data-action="click->unsaved-recipe-row#remove">Remove</div>
+  `;
 
-
-    this.containerTarget.appendChild(wrapperDiv)
+    this.containerTarget.appendChild(wrapperDiv);
   }
 }
