@@ -1,7 +1,13 @@
-<h1 class="PageHeadline mt-4 mb-2"><%= @recipe.name %></h1>
-<p><%= @recipe.description %></p>
+<div class="grid grid-cols-2 gap-4">
+  <div>
+    <h1 class="PageHeadline mt-4 mb-2"><%= @recipe.name %></h1>
+    <p><%= @recipe.description %></p>
+  </div>
+  <div>
+    <%= link_to 'Edit', edit_recipe_path(@recipe), class: 'bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded block w-full md:inline-block md:w-auto' %>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %>
 
 <h2 class="SecondaryHeadline mt-8 mb-2">Ingredients</h2>
 <table class="table-auto">
