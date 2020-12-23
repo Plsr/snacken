@@ -60,6 +60,12 @@ class MealPlansController < ApplicationController
     end
   end
 
+  def share_to_things
+    meal_plan = current_user.meal_plans.find(params[:id])
+    date = meal_plan.created_at.strftime("%d.%m.%Y")
+    render json: ThingsJsonService.new(meal_plan.shopping_list, date).build_link
+  end
+
   private
 
   def meal_plan_accessible?
