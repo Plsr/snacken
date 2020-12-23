@@ -11,7 +11,6 @@ class ThingsJsonService
   end
 
   def build_link
-    pp project_json
     raw_string = "things:///json?data=#{project_json}"
     url_encode(raw_string)
   end

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'login', to: 'user_sessions#new', as: :login
   post 'logout', to: 'user_sessions#destroy', as: :logout
   get 'edit_profile', to: 'users#edit', as: :edit_profile
+  get 'export_to_things/:id', to: 'meal_plans#share_to_things', as: :export_to_things
 
 
   root to: 'pages#home'
