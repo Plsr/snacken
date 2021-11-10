@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.10'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'sorcery'
+gem 'pg', '~> 1.2.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -43,7 +44,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rspec-rails', '~> 4.0.2'
-  gem 'pg', '~> 1.2.3'
 end
 
 group :test do
