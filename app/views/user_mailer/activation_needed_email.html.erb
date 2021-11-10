@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1> Welcome <%= @user.email %> </h1>
+    <p>
+      You have successfully signed up to snacken.com.
+    </p>
+    <p>
+      Please verify your email address by clicking on this link: <%= @url %>
+    </p>
+    <p>Thanks for joining and have a great day!</p>    
+    <small>
+      If you did not sign up for the site, you can ignore this email. Don't worry,
+      we'll not send any further mail and we will delete you email from the database
+      in the next few weeks.
+    <small>
+  </body>
+</html>
