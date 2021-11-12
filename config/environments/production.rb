@@ -26,7 +26,6 @@ Rails.application.configure do
   }
   config.action_mailer.default_url_options = {
     host: 'snacken.club',
-    port: 1025,
     protocol: 'https'
   }
 
