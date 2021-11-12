@@ -9,7 +9,7 @@ class UserMailer < ApplicationMailer
     @user = user
     @url = activate_user_url(@user.activation_token)
 
-    mail to: user.email, subject: 'Welcome to Snacken'
+    mail to: user.email, subject: 'Welcome to Snacken', from: 'noreply@snacken.club'
   end
 
   # No need to send another email
