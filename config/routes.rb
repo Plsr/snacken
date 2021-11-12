@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :users, except: [:show, :edit, :index]
+  root to: 'pages#home'
+
+  resources :users, except: [:show, :edit, :index] do
+    member do
+      get :activate
+    end
+  end
+
   resources :user_sessions, only: [:create]
   resources :recipes
   resources :meal_plans
@@ -13,7 +19,4 @@ Rails.application.routes.draw do
   post 'logout', to: 'user_sessions#destroy', as: :logout
   get 'edit_profile', to: 'users#edit', as: :edit_profile
   get 'export_to_things/:id', to: 'meal_plans#share_to_things', as: :export_to_things
-
-
-  root to: 'pages#home'
 end

@@ -24,4 +24,8 @@ class User < ApplicationRecord
   def invalidate_invite_code
     InviteCode.unused.find_by(code: invite_code).invalidate!
   end
+
+  def activated?
+    activation_state == 'active'
+  end
 end
