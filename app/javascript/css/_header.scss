@@ -1,0 +1,17 @@
+.header {
+	&__logo-link {
+    text-decoration: none;
+    transition: .5s;
+    display: inline-block;
+
+    &:hover {
+      transition: .5s;
+      transform: translateY(2px);
+    }
+	}
+
+	&__logo-image {
+		max-height: 20px;
+		width: auto;
+	}
+}

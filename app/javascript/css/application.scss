@@ -3,10 +3,18 @@
 @import "base";
 @import "tailwindcss/components";
 
+// Variables
+@import "variables/colors";
+
 // Components
 @import "card";
 @import "button";
 @import "text";
+
+// Blocks
+@import "header";
+@import "navigation";
+
 
 // Tailwind utilities have to come last
 @import "tailwindcss/utilities";
