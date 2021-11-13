@@ -8,6 +8,7 @@ class UserMailer < ApplicationMailer
   def activation_needed_email(user)
     @user = user
     @url = activate_user_url(@user.activation_token)
+    attachments.inline["logo.png"] = File.read("#{Rails.root}/app/assets/images/logo.png")
 
     mail to: user.email, subject: 'Welcome to Snacken', from: 'noreply@snacken.club'
   end
