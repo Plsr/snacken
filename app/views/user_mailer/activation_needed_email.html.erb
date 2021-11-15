@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body
+    style="
+      font-family: sans-serif;
+      font-size: 16px;
+      background-color: #fafafa;
+      margin: 0;
+      padding: 0;
+      color: #333333;
+    "
+  >
+    <div style="padding: 4rem 0; width: 100%; display: flex; justify-content: center; background-color: white;">
+      <%= image_tag(attachments['logo.png'].url, alt: 'Snacken logo', style: "max-height: 40px; height: auto;") %>
+    </div>
+    <div
+      style="
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 2rem 0;
+      "
+    >
+      <h1 style="font-size: 1.4rem;"> Welcome to <a href="https://snacken.club" style="color: #610EEA; text-decoration: none;">snacken.club</a> </h1>
+      <p>
+        We're excited to have you on board. <br/>
+        In order to use your newly created account, you need to verify your email address.
+      </p>
+      <p style="font-weight: bold; margin-bottom: 0.2rem; margin-top: 4rem;">
+        Please verify your email address by clicking <a href=<%= @url %> style="color: #610EEA; text-decoration: none;">here</a>
+      </p>
+      <p style="margin-top: 0; color: #666;">
+        Alternatively, paste the following link in your browser: <%= @url %>
+      </p>
+      <p style="margin-top: 4rem;">Thanks for joining and have a great day!</p>
+      <hr style="width: 70%; border: 1px solid #ddd; margin: 2rem auto;"/>
+      <small style="color: #666; font-style: italic;">
+        If you did not sign up for the site, you can ignore this email. Don't worry,
+        we'll not send any further mail and we will delete you email address from the database
+        automatically in the next few weeks.
+      <small>
+    </div>
+  </body>
+</html>

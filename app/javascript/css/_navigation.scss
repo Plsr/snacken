@@ -1,0 +1,29 @@
+.navigation {
+  &__item {
+    color: $text-color;
+    transition: .5s;
+    background-color: transparent;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    margin-bottom: 1.2rem;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    @screen sm {
+      margin-right: 1.2rem;
+      margin-bottom: 0;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+
+    &:hover {
+      transition: .5s;
+      color: lighten($text-color, 20%);
+      border-color: lighten($text-color, 20%);
+    }
+  }
+}

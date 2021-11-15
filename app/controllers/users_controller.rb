@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: [:new, :create]
+  skip_before_action :require_login, only: [:new, :create, :activate]
 
   def show
     @user = current_user
@@ -38,6 +38,15 @@ class UsersController < ApplicationController
     # TODO: Check if user is allowed
     current_user.destroy
     redirect_to root_path, notice: 'User was successfully destroyed.'
+  end
+
+  def activate
+    if @user = User.load_from_activation_token(params[:id])
+      @user.activate!
+      redirect_to(login_path, :notice => 'User was successfully activated.')
+    else
+      not_authenticated
+    end
   end
 
   private

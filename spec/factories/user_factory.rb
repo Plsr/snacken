@@ -6,5 +6,9 @@ FactoryBot.define do
       "user#{n}@example.com"
     end
     invite_code { FactoryBot.create(:invite_code).code }
+
+    trait :needs_activation do
+      activation_token { 'asd' } 
+    end
   end
 end

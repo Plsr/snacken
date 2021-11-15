@@ -1,7 +1,9 @@
 <div data-controller="mobile-menu" class="shadow-md p-6 bg-white">
   <div class="flex justify-between">
-    <div>
-      <%= link_to 'dnnr', root_path, class: 'font-extrabold' %>
+    <div class="">
+      <%= link_to root_path, class: 'font-extrabold', class: 'header__logo-link'  do %>
+        <%= image_tag 'logo.svg', class: 'header__logo-image'%>
+      <% end %>
     </div>
     <nav class="hidden md:block">
       <%= render 'layouts/navigation' %>
