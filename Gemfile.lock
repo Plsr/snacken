@@ -258,7 +258,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   jbuilder (~> 2.10)
-  listen (>= 3.0.5, < 3.4)
+  listen (>= 3.0.5, < 3.7)
   pg (~> 1.2.3)
   puma (~> 5.5)
   rails (~> 6.1.3)
