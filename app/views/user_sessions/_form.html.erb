@@ -1,13 +1,17 @@
 <%= form_with url: user_sessions_path, local: true, method: :post do |f| %>
   <div class="field mb-6">
     <%= f.label :email, class: 'block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' %>
-    <%= f.text_field :email, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
+    <%= f.text_field :email, class: 'appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
   </div>
   <div class="field mb-6">
     <%= f.label :password, class: 'block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' %>
-    <%= f.password_field :password, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
+    <%= f.password_field :password, class: 'appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
   </div>
   <div class="actions">
-    <%= f.submit "Login", class: 'bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded' %>
+    <%= f.submit "Login", class: 'bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full' %>
+  </div>
+
+  <div class="mt-6">
+    <p class="italic text-gray-600">Do not have an account yet? <%= link_to 'Register here', new_user_path, class: 'underline text-purple-500' %></p>
   </div>
 <% end %>
