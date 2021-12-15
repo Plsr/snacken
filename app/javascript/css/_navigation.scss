@@ -6,6 +6,8 @@
     font-weight: 600;
     border-bottom: 2px solid transparent;
     margin-bottom: 1.2rem;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
 
     &:last-of-type {
       margin-bottom: 0;
@@ -22,8 +24,8 @@
 
     &:hover {
       transition: .5s;
-      color: lighten($text-color, 20%);
-      border-color: lighten($text-color, 20%);
+      color: #610EEA;
+      border-color: #610EEA;
     }
   }
 }

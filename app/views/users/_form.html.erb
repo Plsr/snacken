@@ -13,25 +13,29 @@
 
   <div class="field mb-6">
     <%= form.label :email, class: 'block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' %>
-    <%= form.text_field :email, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
+    <%= form.text_field :email, class: 'appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
   </div>
 
   <div class="field mb-6">
     <%= form.label :password, class: 'block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' %>
-    <%= form.password_field :password, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
+    <%= form.password_field :password, class: 'appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
   </div>
 
   <div class="field mb-6">
     <%= form.label :password_confirmation, class: 'block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' %>
-    <%= form.password_field :password_confirmation, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
+    <%= form.password_field :password_confirmation, class: 'appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
   </div>
 
   <div class="field mb-6">
     <%= form.label :invite_code, class: 'block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' %>
-    <%= form.text_field :invite_code, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
+    <%= form.text_field :invite_code, class: 'appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500' %>
   </div>
 
   <div class="actions">
-    <%= form.submit "Register", class: 'bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded'  %>
+    <%= form.submit "Register", class: 'Button'  %>
+  </div>
+
+  <div class="mt-4">
+    <p class="italic text-gray-600">Already have an account? <%= link_to 'Login here', login_path, class: 'underline text-purple-500' %></p>
   </div>
 <% end %>

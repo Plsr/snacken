@@ -1,5 +1,9 @@
 .Button {
-  @apply inline-block font-bold bg-teal-500 text-gray-100 text-sm p-2 rounded;
+  @apply inline-block font-bold bg-purple-500 text-gray-100 text-sm p-2 rounded;
+
+  &:hover {
+    @apply bg-purple-700;
+  }
 }
 
 .SecondaryButton {
@@ -11,7 +15,7 @@
 }
 
 .TextButton {
-  @apply font-bold text-sm text-teal-500 uppercase p-2 rounded;
+  @apply font-bold text-sm text-purple-500 uppercase p-2 rounded;
 
    &:hover {
      @apply bg-gray-200
