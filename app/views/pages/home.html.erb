@@ -1,1 +1,12 @@
-<h1>Welcome Home</h1>
+<% if !current_user %>
+  Register or login please
+<% end %>
+
+<% if current_user&.recipes&.none? && current_user&.meal_plans&.none? %>
+  <div class="flex flex-col items-center mt-16">
+    <%= image_tag 'empty.svg', class: "w-64 mb-8" %>
+    <h3 class="text-2xl font-bold">Not a lot to see here...</h3>
+    <p class="mb-4">Why don't you start by adding a few recipes?</p>
+    <%= link_to 'Create new recipe', new_recipe_path, class: "Button" %>
+  </div>
+<% end %>
