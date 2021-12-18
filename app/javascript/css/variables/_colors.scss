@@ -1,8 +1,12 @@
 // Named colors, do not use in stylesheets
-$_purple: #610EEA;
-$_purple_dark: #280A58;
-$_pink: #EF68C9;
+$_purple:      #610EEA;
+$_purple_dark: #061029;
+$_pink:        #EF68C9;
+$_mid-grey:    #76809A;
+$_lighter-grey:    #9295B1;
 
 // Purposeful names, use these in stylesheets
-$main-color: $_purple;
-$text-color: $_purple_dark;
+$main-color:       $_purple;
+$text-color:       $_purple_dark;
+$text-color-light:   $_mid-grey;
+$text-color-lighter: $_lighter-grey;

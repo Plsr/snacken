@@ -11,8 +11,11 @@ class RecipeIngredient < ApplicationRecord
   validates_presence_of :unit
   validate :unit_is_valid
 
+  delegate :name, to: :ingredient
+
   ALLOWED_UNITS = ['ml' ,'l', 'g', 'mg', 'pcs', 'pckgs', 'tsp', 'tbsp']
 
+  # TODO: Should be deprecated with new delegate :name, check where its used an remove
   def ingredient_name
     ingredient.name
   end

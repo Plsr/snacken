@@ -10,3 +10,15 @@
     <%= link_to 'Create new recipe', new_recipe_path, class: "Button" %>
   </div>
 <% end %>
+
+<% if current_user&.recipes&.any? && current_user&.meal_plans&.none? %>
+  <p>Here be meal plans empty state</p>
+  <p>Here be recipes</p>
+  <div class="CardList">
+    <% current_user.recipes.limit(3).map do |recipe| %>
+      <div class="CardList__item">
+        <%= render 'recipe', recipe: recipe %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

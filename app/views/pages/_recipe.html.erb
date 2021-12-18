@@ -1,0 +1,13 @@
+<div class="Card RecipeCard">
+  <h3 class="CardTitle RecipeCard__title"><%= recipe.name %></h3>
+  <ul>
+    <% recipe.recipe_ingredients.limit(4).map do |ingredient| %>
+      <li class="RecipeCard__ingredient">
+        <span><%= ingredient.name %></span> <span class="RecipeCard__ingredient--amount"><%= ingredient.amount %> <%= ingredient.unit %></span>
+      </li>
+    <% end %>
+    <% if recipe.recipe_ingredients.count > 4 %>
+      <li class="RecipeCard__more-text">+ <%= recipe.recipe_ingredients.count - 4 %> more</li>
+    <% end %>
+  </ul>
+</div>
