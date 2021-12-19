@@ -1,7 +1,9 @@
 <% dummy_emojis = %w[🍟 🍲 🍔 🍝 🧆 🌱 🌯] %>
 
 <div class="Card RecipeCard">
-  <h3 class="CardTitle RecipeCard__title"><%= dummy_emojis.sample %> <%= recipe.name %></h3>
+  <%= link_to recipe_path(recipe) do %>
+    <h3 class="CardTitle RecipeCard__title"><%= dummy_emojis.sample %> <%= recipe.name %></h3>
+  <% end%>
   <ul>
     <% recipe.recipe_ingredients.limit(4).map do |ingredient| %>
       <li class="RecipeCard__ingredient">
