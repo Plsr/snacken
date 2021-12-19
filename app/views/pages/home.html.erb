@@ -13,7 +13,10 @@
 
 <% if current_user&.recipes&.any? && current_user&.meal_plans&.none? %>
   <p>Here be meal plans empty state</p>
-  <p>Here be recipes</p>
+  <div class="flex flex-row justify-between content-center mb-4">
+    <h2 class="Headline--card-list">Here be recipes</h2>
+    <%= link_to "See all →", recipes_path, class: "TextButton self-center" %>
+  </div>
   <div class="CardList">
     <% current_user.recipes.limit(3).map do |recipe| %>
       <div class="CardList__item">
