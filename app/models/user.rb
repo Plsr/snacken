@@ -28,4 +28,8 @@ class User < ApplicationRecord
   def activated?
     activation_state == 'active'
   end
+
+  def current_meal_plan
+    meal_plans.most_recent
+  end
 end
