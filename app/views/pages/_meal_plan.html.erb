@@ -1,1 +1,27 @@
-<div class="Card">Meal Plan</div>
+<% dummy_emojis = %w[🍟 🍲 🍔 🍝 🧆 🌱 🌯] %>
+<% dummy_emojis_filtered = dummy_emojis.sample(meal_plan.recipes.count) %>
+
+<div class="Card">
+  <div class="flex flex-row justify-between">
+    <div class="flex flex-1 flex-col">
+      <div>
+        <h3 class="CardTitle">Meal plan from <%= meal_plan.created_at.strftime("%B %d") %></h3>
+        <small>created on <%= meal_plan.created_at.strftime("%B %d, %Y") %></small>
+      </div>
+      <div class="mt-auto">
+        <h4><%= meal_plan.recipes.count %> Meals</h4>
+        <div></div>
+        <p><%= dummy_emojis_filtered.join(" ") %></p>
+      </div>
+    </div>
+    <div class="flex flex-1 flex-col justify-between">
+      <% meal_plan.recipes.each_with_index do |recipe, index| %>
+        <h5 class="RecipeTitle">
+          <span class="RecipeTitle__emoji"><%= dummy_emojis_filtered[index] %></span>
+          <span class="RecipeTitle__name"><%= recipe.name %></span>
+        </h5>
+      <% end %>
+    </div>
+  </div>
+</div>
+

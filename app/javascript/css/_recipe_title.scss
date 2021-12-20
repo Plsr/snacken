@@ -1,0 +1,22 @@
+.RecipeTitle {
+  display: flex;
+  align-items: center;
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 3rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  &__emoji, &__name {
+    display: inline-block;
+  }
+
+  &__emoji {
+    margin-right: 1rem;
+  }
+
+  &__name {
+  }
+}
