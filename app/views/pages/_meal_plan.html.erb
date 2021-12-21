@@ -2,7 +2,7 @@
 <% dummy_emojis_filtered = dummy_emojis.sample(meal_plan.recipes.count) %>
 
 <div class="Card MealPlanCard">
-  <div class="flex flex-row justify-between">
+  <div class="flex flex-row justify-between h-full">
     <div class="flex flex-1 flex-col MealPlanCard__section-with-border">
       <div>
         <h3 class="CardTitle">Meal plan from <%= meal_plan.created_at.strftime("%B %d") %></h3>

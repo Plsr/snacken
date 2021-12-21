@@ -7,6 +7,9 @@ class ShoppingListIngredient < ApplicationRecord
 
   scope :checked_off_last, -> { order("checked_off_at DESC") }
 
+  delegate :name, to: :ingredient
+
+  # TODO: Should be obsolete with delegate above, remove later on
   def ingredient_name
     ingredient.name
   end
