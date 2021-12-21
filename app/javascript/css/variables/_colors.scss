@@ -2,9 +2,11 @@
 $_purple:      #610EEA;
 $_purple_pale: #9F7AEA;
 $_purple_dark: #061029;
+$_purplish_grey: #DBD0F2;
 $_pink:        #EF68C9;
 $_mid-grey:    #76809A;
 $_lighter-grey:    #9295B1;
+
 
 // Purposeful names, use these in stylesheets
 $main-color:         $_purple;
@@ -12,3 +14,4 @@ $text-color:         $_purple_dark;
 $text-color-light:   $_mid-grey;
 $text-color-lighter: $_lighter-grey;
 $text-button-color:  $_purple_pale;
+$divider-color:      $_purplish_grey;
