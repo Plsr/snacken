@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  root to: 'pages#home', :constraints => UserRequiredConstraint.new
+  root to: 'pages#landing', :constraints => NoUserRequiredConstraint.new, as: nil
 
   resources :users, except: [:show, :edit, :index] do
     member do
