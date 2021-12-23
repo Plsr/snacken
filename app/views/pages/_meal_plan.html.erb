@@ -5,7 +5,9 @@
   <div class="flex flex-row justify-between h-full">
     <div class="flex flex-1 flex-col MealPlanCard__section-with-border">
       <div>
-        <h3 class="CardTitle">Meal plan from <%= meal_plan.created_at.strftime("%B %d") %></h3>
+        <%= link_to meal_plan_path(meal_plan) do %>
+          <h3 class="CardTitle">Meal plan from <%= meal_plan.created_at.strftime("%B %d") %></h3>
+        <% end %>
         <small class="MealPlanCard__created-at">created on <%= meal_plan.created_at.strftime("%B %d, %Y") %></small>
       </div>
       <div class="mt-auto">
