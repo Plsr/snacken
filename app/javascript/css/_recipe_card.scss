@@ -1,0 +1,20 @@
+.RecipeCard {
+  &__title {
+    margin-bottom: 1rem;
+  }
+
+  &__ingredient {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: $text-color;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &--amount {
+      color: $text-color-light;
+    }
+  }
+}

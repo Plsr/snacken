@@ -56,6 +56,8 @@ class RecipesController < ApplicationController
   end
 
   def recipe_in_active_meal_plan(recipe_id)
+    return false unless current_meal_plan.present?
+
     active_recipes = current_meal_plan.recipes.pluck(:id)
     active_recipes.include?(recipe_id)
   end

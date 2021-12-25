@@ -1,0 +1,11 @@
+<div class="Card">
+  <h3 class="CardTitle mb-6">🛍  Grocery List</h3>
+  <ul>
+    <% shopping_list.shopping_list_ingredients.limit(4).each do |item| %>
+      <li class="FauxCheckbox mb-6"><%= item.name %></li>
+    <% end %>
+    <% if shopping_list.shopping_list_ingredients.count > 4 %>
+      <li class="MoreText">+ <%= shopping_list.shopping_list_ingredients.count - 4 %> more</li>
+    <% end %>
+  </ul>
+</div>

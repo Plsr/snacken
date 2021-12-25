@@ -1,0 +1,14 @@
+.FauxCheckbox {
+  position: relative;
+  padding-left: 30px;
+
+  &:before {
+    content: "";
+    left: 0;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid $divider-color;
+    border-radius: 4px;
+  }
+}
