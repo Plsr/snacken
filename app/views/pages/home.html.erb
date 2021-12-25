@@ -11,8 +11,8 @@
   <% if current_user.meal_plans.none? %>
     <div class="mb-16">
       <h2 class="Headline--card-list mb-4">Current Meal Plan</h2>
-      <div class="grid grid-cols-3 gap-6">
-        <div class="col-span-2">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="col-span-1 lg:col-span-2">
           <%= render "meal_plan_empty" %>
         </div>
       </div>
@@ -20,8 +20,8 @@
   <% else %>
     <div class="mb-16">
       <h2 class="Headline--card-list mb-4">Current Meal Plan</h2>
-      <div class="grid grid-cols-3 gap-6">
-        <div class="col-span-2">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="col-span-1 lg:col-span-2">
           <%= render "meal_plan", meal_plan: current_user.current_meal_plan %>
         </div>
         <div class="col-span-1">
@@ -35,7 +35,7 @@
     <h2 class="Headline--card-list">Your recipes</h2>
     <%= link_to "See all →", recipes_path, class: "TextButton self-center" %>
   </div>
-  <div class="grid grid-cols-3 gap-6">
+  <div class="grid gird-cols-1 lg:grid-cols-3 gap-6">
     <% @recipes.map do |recipe| %>
       <div class="col-span-1">
         <%= render 'recipe', recipe: recipe %>

@@ -11,7 +11,12 @@
   }
 
   &__section-with-border {
-    border-right: 1px solid $divider-color;
+    border-bottom: 1px solid $divider-color;
+
+    @media (min-width: 1024px) {
+      border-bottom: none;
+      border-right: 1px solid $divider-color;
+    }
   }
 
   &__meal-count {
