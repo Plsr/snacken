@@ -1,12 +1,45 @@
-<% if !current_user %>
-  Register or login please
-<% end %>
-
-<% if current_user&.recipes&.none? && current_user&.meal_plans&.none? %>
+<% if current_user.recipes.none? && current_user.meal_plans.none? %>
   <div class="flex flex-col items-center mt-16">
     <%= image_tag 'empty.svg', class: "w-64 mb-8" %>
     <h3 class="text-2xl font-bold">Not a lot to see here...</h3>
     <p class="mb-4">Why don't you start by adding a few recipes?</p>
     <%= link_to 'Create new recipe', new_recipe_path, class: "Button" %>
+  </div>
+<% end %>
+
+<% if current_user.recipes.any? %>
+  <% if current_user.meal_plans.none? %>
+    <div class="mb-16">
+      <h2 class="Headline--card-list mb-4">Current Meal Plan</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="col-span-1 lg:col-span-2">
+          <%= render "meal_plan_empty" %>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="mb-16">
+      <h2 class="Headline--card-list mb-4">Current Meal Plan</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="col-span-1 lg:col-span-2">
+          <%= render "meal_plan", meal_plan: current_user.current_meal_plan %>
+        </div>
+        <div class="col-span-1">
+          <%= render "shopping_list", shopping_list: @shopping_list %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="flex flex-row justify-between content-center mb-4">
+    <h2 class="Headline--card-list">Your recipes</h2>
+    <%= link_to "See all →", recipes_path, class: "TextButton self-center" %>
+  </div>
+  <div class="grid gird-cols-1 lg:grid-cols-3 gap-6">
+    <% @recipes.map do |recipe| %>
+      <div class="col-span-1">
+        <%= render 'recipe', recipe: recipe %>
+      </div>
+    <% end %>
   </div>
 <% end %>

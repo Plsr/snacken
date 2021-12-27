@@ -1,0 +1,17 @@
+<% dummy_emojis = %w[🍟 🍲 🍔 🍝 🧆 🌱 🌯] %>
+
+<div class="Card RecipeCard">
+  <%= link_to recipe_path(recipe) do %>
+    <h3 class="CardTitle RecipeCard__title"><%= dummy_emojis.sample %> <%= recipe.name %></h3>
+  <% end%>
+  <ul>
+    <% recipe.recipe_ingredients.limit(4).map do |ingredient| %>
+      <li class="RecipeCard__ingredient">
+        <span><%= ingredient.name %></span> <span class="RecipeCard__ingredient--amount"><%= ingredient.amount %> <%= ingredient.unit %></span>
+      </li>
+    <% end %>
+    <% if recipe.recipe_ingredients.count > 4 %>
+      <li class="MoreText">+ <%= recipe.recipe_ingredients.count - 4 %> more</li>
+    <% end %>
+  </ul>
+</div>

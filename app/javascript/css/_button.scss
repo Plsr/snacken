@@ -14,10 +14,3 @@
   }
 }
 
-.TextButton {
-  @apply font-bold text-sm text-purple-500 uppercase p-2 rounded;
-
-   &:hover {
-     @apply bg-gray-200
-   }
-}
