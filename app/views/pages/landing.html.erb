@@ -1,15 +1,25 @@
-<section>
-  <h1>Never think about what to cook today again</h1>
-  <span>Snacken helps you find meals and writes shopping lists with what you need to buy for them</span>
-  <%= image_tag "cooking-board.jpeg" %>
+<section class="LandingHeader mb-24">
+  <div class="grid grid-cols-3 col-gap-6">
+    <div class="col-span-2">
+      <h1 class="underline-headline LandingHeader__headline">Never think about what to cook today again</h1>
+      <p class="LandingHeader__claim mt-8 mb-16">Snacken helps you find meals and writes shopping lists with what you need to buy for them</p>
+      <div class="LandingpageCta Card h-auto">
+        <h3 class="LandingpageCta__cta text-xl font-bold mb-2">Interested? Leave us your email to get an invite code</h2>
+        <span class="LandingpageCta__explanation text-lg font-medium">We’ll notify you once a new batch of codes is sent out</span>
+        <div class="flex flex-1 max-w-2xl mt-6">
+          <% # TODO: Make form to add to subscribers %>
+          <input class="appearance-none text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 flex-1" type="email" placeholder="example@mail.com" />
+          <button class="Button px-6 rounded-l-none">Invite me</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-span-1">
+      <div class="rounded-image"></div>
+    </div>
+  </div>
 </section>
 
-<section>
-  <h3>Interested? Leave us your email to get an invite code</h2>
-  <span>We’ll notify you once a new batch of codes is sent out</span>
-  <input type="email" placeholder="example@mail.com" />
-  <button>Invite me</button>
-</section>
+
 
 <section>
   <h2>How it works</h2>
@@ -21,17 +31,17 @@
       <h3>1. Save your favourite recipes</h3>
       <span>Just the essentials: The name an the ingredients, no detailed steps
   on preperation needed.</span>
-    </div> 
+    </div>
     <div>
       <h3>2. Let Snacken create a meal plan for you</h3>
       <span>Just tell us how many meals you want to go shopping for. We will generate
   a plan for you, you switch out the ones you don’t like.</span>
-    </div> 
+    </div>
     <div>
       <h3>3. Buy what you need with the generated shopping list</h3>
       <span>Snacken will create a shopping list for you with all the things you need to buy.
   Use it on the website or export it to your favourite ToDo-App.</span>
-    </div> 
+    </div>
   </div>
 </section>
 
