@@ -1,0 +1,23 @@
+.StackedImages {
+  position: relative;
+  width: 100%;
+
+  img {
+    max-width: calc(100% - 60px);
+    height: auto;
+    position: absolute;
+    left: 40px;
+    top: 40px;
+    @apply shadow-lg;
+  }
+
+  img:nth-child(2) {
+    left: 20px;
+    top: 20px;
+  }
+
+  img:nth-child(3) {
+    left: 0px;
+    top: 0px;
+  }
+}
