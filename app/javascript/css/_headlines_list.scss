@@ -1,0 +1,14 @@
+.HeadlinesList {
+  &__divider {
+    height: 4px;
+    width: 50px;
+    background-color: $divider-color;
+  }
+
+  &__text {
+  }
+
+  &__divider, &__text {
+    margin-left: 0.8rem;
+  }
+}
