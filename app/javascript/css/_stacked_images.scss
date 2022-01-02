@@ -1,6 +1,11 @@
 .StackedImages {
   position: relative;
   width: 100%;
+  margin-bottom: 380px;
+
+  @media (min-width: 640px) {
+    margin-bottom: 0;
+  }
 
   img {
     max-width: calc(100% - 60px);

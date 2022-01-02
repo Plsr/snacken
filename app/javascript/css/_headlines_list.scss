@@ -6,6 +6,8 @@
   }
 
   &__divider, &__text {
-    margin-left: 1.3rem;
+    @media (min-width: 640px) {
+      margin-left: 1.3rem;
+    }
   }
 }
