@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 
-  <body class="bg-gray-100">
+  <body class="<%= controller.action_name == 'landing' ? 'bg-white' : 'bg-gray-100' %>">
     <%= render 'layouts/header' %>
     <div class="fixed ml-6 mt-6">
       <% if flash[:notice] %>
