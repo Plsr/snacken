@@ -6,6 +6,6 @@
     <%= link_to "Logout", :logout, method: :post, class: 'md:inline block  navigation__item' %>
   <% else %>
     <%= link_to "Register", new_user_path, class: 'md:inline block navigation__item' %>
-    <%= link_to "Login", login_path, class: 'md:inline block navigation__item' %>
+    <%= link_to "Login", login_path, class: 'md:inline inline-block navigation__item navigation__item--highlight' %>
   <% end %>
 </div>

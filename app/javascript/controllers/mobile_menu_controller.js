@@ -5,13 +5,5 @@ export default class extends Controller {
 
   toggleMenu(_event) {
     this.menuTarget.classList.toggle("hidden");
-
-    let menuText = "Close Menu";
-
-    if (this.menuTarget.classList.contains("hidden")) {
-      menuText = "Show Menu";
-    }
-
-    this.menuButtonTarget.innerHTML = menuText;
   }
 }

@@ -2,15 +2,20 @@
   &__item {
     color: $text-color;
     transition: .5s;
-    background-color: transparent;
     font-weight: 600;
     border-bottom: 2px solid transparent;
     margin-bottom: 1.2rem;
     padding-bottom: 5px;
-    border-bottom: 2px solid transparent;
 
     &:last-of-type {
       margin-bottom: 0;
+    }
+
+    &--highlight {
+      color: $text-button-color;
+      padding: 5px 10px;
+      border: 2px solid $text-button-color;
+      border-radius: 4px;
     }
 
     @screen sm {
