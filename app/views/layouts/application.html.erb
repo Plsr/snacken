@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <% if Rails.env.production? %>
+      <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="<%= ENV['COOKIEBOT_TOKEN'] %>" data-blockingmode="auto" type="text/javascript"></script>
+    <% end %>
     <title>Snacken</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>

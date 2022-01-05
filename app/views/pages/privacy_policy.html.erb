@@ -229,3 +229,6 @@ Before personal data is provided by the data subject, the data subject must cont
 
 <p>Developed by the specialists for <a href="https://willing-able.com/">LegalTech</a> at Willing & Able that also developed the system for <a href="https://abletotrain.com/">data protection officer certification online</a>. The legal texts contained in our privacy policy generator have been provided and published by <a href="https://dg-datenschutz.de/">Prof. Dr. h.c. Heiko Jonny Maniero</a> from the German Association for Data Protection and <a href="https://www.wbs-law.de/" rel="nofollow">Christian Solmecke</a> from WBS law.</p>
 
+<% if Rails.env.production? %>
+  <script id="CookieDeclaration" src="<%= "https://consent.cookiebot.com/#{ENV['COOKIEBOT_TOKEN']}/cd.js" %>" type="text/javascript" async></script>
+<% end %>
