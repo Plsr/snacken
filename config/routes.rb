@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/privacy_policy', to: 'pages#privacy_policy', as: :privacy_policy
+  get '/imprint', to: 'pages#imprint', as: :imprint
+
   resources :user_sessions, only: [:create]
   resources :recipes
   resources :meal_plans

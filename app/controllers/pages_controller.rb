@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PagesController < ApplicationController
-  skip_before_action :require_login, only: [:landing]
+  skip_before_action :require_login, except: %i[home]
 
   def home
     @meal_plan     = current_user.current_meal_plan
@@ -12,4 +12,8 @@ class PagesController < ApplicationController
   def landing
     @beta_candidate = BetaCandidate.new
   end
+
+  def privacy_policy; end
+
+  def imprint; end
 end
