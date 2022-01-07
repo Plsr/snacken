@@ -1,0 +1,11 @@
+<footer class="bg-gray-800 px-4 py-8 mt-16 text-gray-100">
+  <div class="container mx-auto flex flex-col md:flex-row justify-between text-center md:text-left">
+    <div class="mb-8 md:mb-0">
+      <span>© <%= DateTime.now.strftime("%Y") %> snacken.club</span>
+    </div>
+    <div>
+      <%= link_to "Privacy Policy", privacy_policy_path, class: "font-medium mr-6" %>
+      <%= link_to "Imprint", imprint_path, class: "font-medium" %>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,30 @@
+.Skew {
+  background-color: lighten($divider-color, 7%);
+  height: 400px;
+  width: 100vw;
+  transform: skewY(-5deg);
+  position: absolute;
+  top: -20%;
+  left: -1rem;
+  z-index: -1;
+
+  @media (min-width: 640px) {
+    top: -50%;
+    left: calc((100vw - 640px + 2rem) / -2);
+  }
+
+  @media (min-width: 768px) {
+    top: -50%;
+    left: calc((100vw - 768px + 2rem) / -2);
+  }
+
+  @media (min-width: 1024px) {
+    top: -70%;
+    left: calc((100vw - 1024px + 1rem) / -2);
+  }
+
+  @media (min-width: 1280px) {
+    top: -70%;
+    left: calc((100vw - 1280px + 1rem) / -2);
+  }
+}

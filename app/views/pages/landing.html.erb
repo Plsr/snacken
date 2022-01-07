@@ -1,1 +1,58 @@
-<h1>Snacken</h1>
+<section class="LandingHeader mt-16 mb-24">
+  <div class="grid grid-cols-3 col-gap-6">
+    <div class="col-span-3 lg:col-span-2">
+      <h1 class="UnderlineHeadline UnderlineHeadline--on-white LandingHeader__headline">Never think about what to cook today again</h1>
+      <p class="LandingHeader__claim mt-8 mb-16">Snacken helps you find meals and writes shopping lists with what you need to buy for them</p>
+      <div class="LandingpageCta Card h-auto">
+        <h3 class="LandingpageCta__cta text-xl font-bold mb-2">Interested? Leave us your email to get an invite code</h2>
+        <span class="LandingpageCta__explanation text-lg font-medium">We’ll notify you once a new batch of codes is sent out</span>
+        <%= form_for @beta_candidate, url: beta_candidates_path, method: :post do |f| %>
+          <div class="flex flex-col md:flex-row flex-1 max-w-2xl mt-6">
+            <%= f.text_field :email, class: "appearance-none text-gray-700 md:rounded-r-none border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 flex-1", type: 'email', placeholder: 'example@mail.com' %>
+            <%= f.submit 'Invite me', class: "Button px-6 mt-6 md:mt-0 md:rounded-l-none" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="hidden lg:block col-span-1">
+      <div class="rounded-image"></div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="relative">
+  <div class="Skew"></div>
+  <div class="flex justify-center mb-16">
+    <h2 class="font-bold UnderlineHeadline UnderlineHeadline--on-accent text-center text-3xl">How it works</h2>
+  </div>
+  <div class="grid grid-cols-12 col-gap-6">
+    <div class="StackedImages col-span-12 md:col-span-5">
+      <%= image_tag "landing-page.png" %>
+      <%= image_tag "landing-page.png" %>
+      <%= image_tag "landing-page.png" %>
+    </div>
+    <div class="col-span-12 md:col-span-7">
+      <div class="HeadlinesList mb-12">
+        <h3 class="text-xl font-bold mb-2">1. Save your favourite recipes</h3>
+        <div class="HeadlinesList__divider mb-2"></div>
+        <p class="HeadlinesList__text font–l">Just the essentials: The name an the ingredients, no detailed steps
+    on preperation needed.</p>
+      </div>
+      <div class="HeadlinesList mb-12">
+        <h3 class="text-xl font-bold mb-2">2. Let Snacken create a meal plan for you</h3>
+        <div class="HeadlinesList__divider mb-2"></div>
+        <p class="HeadlinesList__text font–l">Just tell us how many meals you want to go shopping for. We will generate
+    a plan for you, you switch out the meals you don’t like.</p>
+      </div>
+      <div class="HeadlinesList">
+        <h3 class="text-xl font-bold mb-2">3. Buy what you need with the generated shopping list</h3>
+        <div class="HeadlinesList__divider mb-2"></div>
+        <p class="HeadlinesList__text font–l">Snacken will create a shopping list for you with all the things you need to buy.
+    Use it on the website or export it to your favourite ToDo-App.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
