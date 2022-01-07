@@ -6,6 +6,8 @@ class BetaCandidate < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :confirmation_token, presence: true
 
+  scope :unconfirmed, -> { where(confirmed_at: nil) }
+
   def converted?
     converted_at.present?
   end
