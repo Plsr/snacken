@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   has_many :recipes
   has_many :meal_plans
+  has_one  :beta_candidate
 
   validates :password, length: { minimum: 8 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -30,10 +31,10 @@ class User < ApplicationRecord
   end
 
   def current_meal_plan
-    meal_plans.most_recent
+    meal_plans.most_recent.presence
   end
 
   def current_shopping_list
-    current_meal_plan.shopping_list
+    current_meal_plan&.shopping_list
   end
 end
