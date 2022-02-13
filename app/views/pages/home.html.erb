@@ -8,7 +8,7 @@
 <% end %>
 
 <% if current_user.recipes.any? %>
-  <% if current_user.meal_plans.none? %>
+  <% if current_user.meal_plans.committed.none? %>
     <div class="mb-16">
       <h2 class="Headline--card-list mb-4">Current Meal Plan</h2>
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">

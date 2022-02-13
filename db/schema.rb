@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_10_215415) do
+ActiveRecord::Schema.define(version: 2022_02_13_085904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "beta_candidates", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "email"
+    t.datetime "confirmed_at"
+    t.string "confirmation_token", null: false
+    t.datetime "converted_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_beta_candidates_on_user_id"
+  end
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
@@ -48,6 +59,7 @@ ActiveRecord::Schema.define(version: 2021_11_10_215415) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "number_of_meals"
+    t.boolean "committed", default: false
     t.index ["user_id"], name: "index_meal_plans_on_user_id"
   end
 

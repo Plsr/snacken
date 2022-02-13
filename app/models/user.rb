@@ -31,7 +31,7 @@ class User < ApplicationRecord
   end
 
   def current_meal_plan
-    meal_plans.most_recent.presence
+    meal_plans.committed.most_recent.presence
   end
 
   def current_shopping_list

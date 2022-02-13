@@ -26,6 +26,7 @@ class MealPlansController < ApplicationController
     @shopping_list = ShoppingList.build_from_meal_plan(@meal_plan, current_user)
 
     if @shopping_list.save
+      @meal_plan.update(committed: true)
       redirect_to meal_plan_path(@meal_plan)
     else
       # TODO: Pass error message
