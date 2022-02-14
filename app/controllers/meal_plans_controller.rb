@@ -1,6 +1,11 @@
 class MealPlansController < ApplicationController
   def new
-    @meal_plan = MealPlan.new(number_of_meals: 2)
+    if current_user.meal_plans.uncommitted.any?
+      flash[:notice] = "You have an uncommitted meal plan lying around"
+      redirect_to meal_plan_path(current_user.meal_plans.uncommitted.first)
+    else
+      @meal_plan = MealPlan.new(number_of_meals: 2)
+    end
   end
 
   def index
@@ -37,7 +42,7 @@ class MealPlansController < ApplicationController
   def swap_recipe
     @meal_plan = MealPlan.find(params[:id])
     raise ActionController::RoutingError.new('Not Found') unless meal_plan_accessible?
-    return unless @meal_plan.recipes_changable
+    return unless @meal_plan.recipes_changable?
 
     recipe_ids = @meal_plan.recipe_ids
 
