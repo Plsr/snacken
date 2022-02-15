@@ -30,10 +30,11 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'sorcery'
 gem 'pg', '~> 1.2.3'
 gem 'delayed_job_active_record', '~> 4.1.6'
+gem "interactor", "~> 3.0"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails'
   gem 'factory_bot_rails'
   gem 'dotenv-rails'
   gem 'bullet'

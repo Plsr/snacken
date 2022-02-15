@@ -13,5 +13,9 @@ FactoryBot.define do
 
       meal_plan.reload
     end
+
+    trait :committed do
+      committed { true }
+    end
   end
 end

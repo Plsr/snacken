@@ -62,4 +62,18 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  config.include Sorcery::TestHelpers::Internal
+  config.include Sorcery::TestHelpers::Internal::Rails
+  config.include Sorcery::TestHelpers::Rails::Controller
+  config.include Sorcery::TestHelpers::Rails::Integration
+  config.include Sorcery::TestHelpers::Rails::Request
+
+  config.before(:each) do
+    Bullet.enable = false
+  end
+
+  config.after(:each) do
+    Bullet.enable = true
+  end
 end
