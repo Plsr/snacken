@@ -1,4 +1,8 @@
 <%= form_with(model: meal_plan, local: true) do |form| %>
+  <% if local_assigns[:proposal] %>
+    <%= hidden_field_tag(:proposal, value: true) %>
+  <% end %>
+  
   <% if meal_plan.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(meal_plan.errors.count, "error") %> prohibited this meal plan from being saved:</h2>

@@ -1,6 +1,11 @@
 class MealPlansController < ApplicationController
   def new
-    @meal_plan = MealPlan.new(number_of_meals: 2)
+    if current_user.meal_plans.uncommitted.any?
+      flash[:notice] = "You have an uncommitted meal plan lying around"
+      redirect_to meal_plan_path(current_user.meal_plans.uncommitted.first)
+    else
+      @meal_plan = MealPlan.new(number_of_meals: 2)
+    end
   end
 
   def index
@@ -8,15 +13,18 @@ class MealPlansController < ApplicationController
   end
 
   def create
-    @meal_plan = MealPlan.new(meal_plan_params)
-    @meal_plan.user = current_user
-    needed_recipes = @meal_plan.number_of_meals
-    recipes = Recipe.ordered_random.limit(needed_recipes)
-    @meal_plan.recipes << recipes
+    # TODO: Move guard claused to pundit
+    needed_recipes = meal_plan_params[:number_of_meals]
+    redirect_to recipes_path and return if current_user.recipes.none?
+    redirect_to recipes_path and return if needed_recipes.to_i > current_user.recipes.count
 
-    if @meal_plan.save
+    result = CommitMealPlan.call(params: meal_plan_params, proposal: params[:proposal].present?, user: current_user)
+    if result.success?
+      @meal_plan = result.meal_plan
+      @shopping_list = result.shopping_list
       redirect_to meal_plan_path(@meal_plan)
     else
+      flash[:notice] = "Something went wrong"
       render :new
     end
   end
@@ -37,7 +45,7 @@ class MealPlansController < ApplicationController
   def swap_recipe
     @meal_plan = MealPlan.find(params[:id])
     raise ActionController::RoutingError.new('Not Found') unless meal_plan_accessible?
-    return unless @meal_plan.recipes_changable
+    return unless @meal_plan.recipes_changable?
 
     recipe_ids = @meal_plan.recipe_ids
 
