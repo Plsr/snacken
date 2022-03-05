@@ -8,7 +8,7 @@ FactoryBot.define do
     invite_code { FactoryBot.create(:invite_code).code }
 
     trait :needs_activation do
-      activation_token { 'asd' } 
+      activation_token { 'asd' }
     end
   end
 end
