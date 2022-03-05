@@ -15,7 +15,6 @@ on:
 
 jobs:
   test:
-    environment: test
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -43,12 +42,12 @@ jobs:
           cp config/database.yml.github-actions config/database.yml
           bundle exec rake db:create
           bundle exec rake db:schema:load
-      - name: Setup Webpacker
-        run: rails webpacker:install
         env:
           RAILS_ENV: test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
+      - name: Setup Webpacker
+        run: rails webpacker:install
       - name: Run tests
         run: COVERAGE=true bundle exec rspec
         env:
