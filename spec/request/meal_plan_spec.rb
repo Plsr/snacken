@@ -45,7 +45,7 @@ RSpec.describe "MealPlan requests", type: :request do
         expect(MealPlan.last.shopping_list).to be_nil
       end
 
-      it "creates a commited meal plan if number of meals equals users recipes" do
+      it "creates a commited meal plan and overrides the proposal param if number of meals equals users recipes" do
         meal_plan.number_of_meals = user.recipes.count
         
         expect{ subject }.to change { MealPlan.count }.by(1)
