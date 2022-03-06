@@ -1,4 +1,12 @@
 .Card {
   height: 100%;
-  @apply rounded overflow-hidden shadow-lg rounded-md bg-white p-8;
+  @apply rounded overflow-hidden rounded-md bg-white p-8;
+  box-shadow:
+    0.7px 2.8px 2.2px rgba(0, 0, 0, 0.011),
+    1.8px 6.7px 5.3px rgba(0, 0, 0, 0.016),
+    3.4px 12.5px 10px rgba(0, 0, 0, 0.02),
+    6px 22.3px 17.9px rgba(0, 0, 0, 0.024),
+    11.3px 41.8px 33.4px rgba(0, 0, 0, 0.029),
+    27px 100px 80px rgba(0, 0, 0, 0.04)
+  ;
 }

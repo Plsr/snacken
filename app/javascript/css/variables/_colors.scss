@@ -1,15 +1,16 @@
 // Named colors, do not use in stylesheets
-$_purple:      #610EEA;
-$_purple_pale: #9F7AEA;
-$_purple_dark: #061029;
-$_purplish_grey: #DBD0F2;
-$_pink:        #EF68C9;
-$_mid-grey:    #76809A;
-$_lighter-grey:    #9295B1;
+$_purple:      #1E26E9;
+$_purple_pale: #8A83D3;
+$_purple_dark: #3F3D51;
+$_purplish_grey: #696688;
+$_pink:        #DF115B;
+$_mid-grey:    #55536F;
+$_lighter-grey:    #9E9CB5;
 
 
 // Purposeful names, use these in stylesheets
 $main-color:         $_purple;
+$accent-color:       $_pink;
 $text-color:         $_purple_dark;
 $text-color-light:   $_mid-grey;
 $text-color-lighter: $_lighter-grey;

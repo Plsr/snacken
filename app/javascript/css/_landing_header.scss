@@ -1,10 +1,17 @@
 .LandingHeader {
   &__headline {
-    font-size: 3rem;
+    font-size: 1.8rem;
     font-weight: 700;
   }
 
   &__claim {
-    font-size: 2rem;
+    font-size: 1.2rem;
+    line-height: 2;
+  }
+
+  &__claim-highlight {
+    padding: 4px 4px;
+    background-color: #FFA7C7;
+    white-space: nowrap;
   }
 }

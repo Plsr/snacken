@@ -1,8 +1,10 @@
 .Button {
-  @apply inline-block font-bold bg-purple-500 text-gray-100 text-sm p-2 rounded;
+  @apply inline-block font-semibold text-gray-100 text-sm p-2 rounded;
+  background-color: $main-color;
+  cursor: pointer;
 
   &:hover {
-    @apply bg-purple-700;
+    background-color: darken($main-color, 10%);
   }
 }
 

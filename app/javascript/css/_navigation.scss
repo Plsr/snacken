@@ -12,10 +12,17 @@
     }
 
     &--highlight {
-      color: $text-button-color;
-      padding: 5px 10px;
-      border: 2px solid $text-button-color;
-      border-radius: 4px;
+      color: $accent-color;
+      padding: 10px 15px;
+      background-color: $accent-color;
+      border-radius: 8px;
+      color: #FDEEF3;
+
+      &:hover {
+        transition: .5s;
+        background-color: darken($accent-color, 10%);
+        color: #FDEEF3 !important;
+      }
     }
 
     @screen sm {
@@ -29,8 +36,7 @@
 
     &:hover {
       transition: .5s;
-      color: #610EEA;
-      border-color: #610EEA;
+      color: $accent-color;
     }
   }
 }

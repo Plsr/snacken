@@ -1,7 +1,8 @@
 module.exports = {
   theme: {
     fontFamily: {
-      sans: ["Manrope"]
+      sans: ['Sarabun', 'sans-serif'],
+      serif: ['Roboto Slab', 'serif'],
     },
     extend: {}
   },
