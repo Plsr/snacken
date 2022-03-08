@@ -5,6 +5,6 @@ class BetaCandidatesMailer < ApplicationMailer
 
     attachments.inline["logo.png"] = File.read("#{Rails.root}/app/assets/images/logo.png")
 
-    mail to: @candidate.email, subject: 'Welcome to Snacken Beta', from: 'noreply@snacken.club'
+    mail to: @candidate.email, subject: 'Welcome to Dishbot Beta', from: 'noreply@dishbot.app'
   end
 end

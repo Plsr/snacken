@@ -17,7 +17,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: 'smtp.sendgrid.net',
     port: '465',
-    domain: 'snacken.club',
+    domain: 'dishbot.app',
     user_name: 'apikey',
     password: ENV['SENDGRID_API_KEY'],
     authentication: :plain,
@@ -25,7 +25,7 @@ Rails.application.configure do
     tls: true
   }
   config.action_mailer.default_url_options = {
-    host: 'snacken.club',
+    host: 'dishbot.app',
     protocol: 'https'
   }
 
@@ -44,7 +44,7 @@ Rails.application.configure do
   config.assets.compile = false
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.action_controller.asset_host = 'https://snacken.club'
+  config.action_controller.asset_host = 'https://dishbot.app'
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
